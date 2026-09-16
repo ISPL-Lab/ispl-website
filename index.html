@@ -67,25 +67,13 @@ nav{
   text-decoration:none;
 }
 
-.brand-mark{
-  position:relative;
-  width:55px;
-  height:42px;
+.brand-symbol{
+    width:68px;
+    height:68px;
+    object-fit:contain;
+    display:block;
+    flex-shrink:0;
 }
-
-.channel{
-  position:absolute;
-  left:0;
-  height:5px;
-  border-radius:5px;
-  transform-origin:left center;
-}
-
-.c1{top:2px;width:48px;background:var(--navy);transform:rotate(18deg);}
-.c2{top:10px;width:48px;background:#1187ef;transform:rotate(9deg);}
-.c3{top:18px;width:48px;background:var(--cyan);}
-.c4{top:26px;width:48px;background:#1187ef;transform:rotate(-9deg);}
-.c5{top:34px;width:48px;background:var(--navy);transform:rotate(-18deg);}
 
 .node{
   position:absolute;
@@ -540,20 +528,15 @@ footer strong{
     <nav>
 
       <a class="brand" href="#">
-        <div class="brand-mark">
-          <span class="channel c1"></span>
-          <span class="channel c2"></span>
-          <span class="channel c3"></span>
-          <span class="channel c4"></span>
-          <span class="channel c5"></span>
-          <span class="node"></span>
-        </div>
+    <img src="assets/images/ispl-symbol.png"
+         alt="ISPL Symbol"
+         class="brand-symbol">
 
-        <div class="brand-text">
-          <strong>ISPL</strong>
-          <span>Intelligent Signal Processing Laboratory</span>
-        </div>
-      </a>
+    <div class="brand-text">
+        <strong>ISPL</strong>
+        <span>Intelligent Signal Processing Laboratory</span>
+    </div>
+</a>
 
       <div class="menu">
         <a href="#research">Research</a>
