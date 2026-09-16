@@ -531,6 +531,149 @@ footer strong{
     flex-direction:column;
   }
 }
+/* =========================
+   RESEARCH AREAS
+   ========================= */
+
+.research-section{
+  padding:110px 0 120px;
+  background:#ffffff;
+}
+
+.section-heading{
+  max-width:760px;
+  margin-bottom:58px;
+}
+
+.section-kicker{
+  display:block;
+  margin-bottom:16px;
+  color:var(--blue);
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:4px;
+}
+
+.section-heading h2{
+  margin:0 0 20px;
+  color:var(--navy);
+  font-size:clamp(36px,4vw,56px);
+  line-height:1.08;
+  letter-spacing:-1.5px;
+}
+
+.section-heading p{
+  max-width:720px;
+  margin:0;
+  color:#66758a;
+  font-size:18px;
+  line-height:1.7;
+}
+
+.research-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.research-card{
+  position:relative;
+  min-height:340px;
+  padding:36px;
+  border:1px solid #dfe7f1;
+  border-radius:20px;
+  background:#ffffff;
+  overflow:hidden;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.research-card:hover{
+  transform:translateY(-6px);
+  border-color:#b9d8ff;
+  box-shadow:0 20px 50px rgba(9,49,101,.10);
+}
+
+.research-number{
+  margin-bottom:42px;
+  color:#a8b6c8;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.research-card h3{
+  margin:0 0 18px;
+  color:var(--navy);
+  font-size:27px;
+  line-height:1.18;
+}
+
+.research-card p{
+  margin:0 0 28px;
+  color:#66758a;
+  font-size:16px;
+  line-height:1.65;
+}
+
+.research-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.research-tags span{
+  padding:7px 11px;
+  border-radius:999px;
+  background:#f1f6fc;
+  color:#36516f;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* ISPL core research highlight */
+
+.research-card.featured{
+  border-color:#b8d9ff;
+  background:
+    radial-gradient(circle at 100% 0%,
+      rgba(19,181,234,.14),
+      transparent 42%),
+    linear-gradient(145deg,#ffffff,#f7f9ff);
+}
+
+.research-card.featured::after{
+  content:"";
+  position:absolute;
+  right:-35px;
+  top:-35px;
+  width:120px;
+  height:120px;
+  border:22px solid rgba(17,126,239,.07);
+  border-radius:50%;
+}
+
+.research-card.featured .research-number{
+  color:var(--blue);
+}
+
+@media(max-width:760px){
+
+  .research-section{
+    padding:80px 0;
+  }
+
+  .research-grid{
+    grid-template-columns:1fr;
+  }
+
+  .research-card{
+    min-height:auto;
+  }
+
+}
 </style>
 </head>
 
@@ -614,6 +757,82 @@ footer strong{
 
 </section>
 
+<!-- RESEARCH AREAS -->
+<section class="research-section" id="research">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-kicker">RESEARCH AREAS</span>
+      <h2>Turning Signals into<br>Engineering Intelligence.</h2>
+      <p>
+        Our research integrates signal processing, multi-sensor sensing,
+        physics-guided methods, and artificial intelligence for intelligent
+        machinery monitoring and predictive maintenance.
+      </p>
+    </div>
+
+    <div class="research-grid">
+
+      <article class="research-card">
+        <div class="research-number">01</div>
+        <h3>Intelligent Signal<br>Processing</h3>
+        <p>
+          Advanced signal analysis and feature extraction for complex,
+          non-stationary, and noise-contaminated engineering signals.
+        </p>
+        <div class="research-tags">
+          <span>Time–Frequency</span>
+          <span>Order Analysis</span>
+          <span>Feature Engineering</span>
+        </div>
+      </article>
+
+      <article class="research-card">
+        <div class="research-number">02</div>
+        <h3>Multichannel Sensing<br>& Sensor Fusion</h3>
+        <p>
+          Multichannel vibration, current, and heterogeneous sensing for
+          reliable information extraction and condition monitoring.
+        </p>
+        <div class="research-tags">
+          <span>Sensor Fusion</span>
+          <span>Multichannel</span>
+          <span>IIoT</span>
+        </div>
+      </article>
+
+      <article class="research-card featured">
+        <div class="research-number">03</div>
+        <h3>Physics-Guided<br>Beamforming</h3>
+        <p>
+          Physics-guided steering and spatial filtering methods for enhancing
+          weak fault-related components in rotating machinery.
+        </p>
+        <div class="research-tags">
+          <span>Beamforming</span>
+          <span>RFRF</span>
+          <span>Robust MVDR</span>
+        </div>
+      </article>
+
+      <article class="research-card">
+        <div class="research-number">04</div>
+        <h3>Machinery Diagnostics<br>& PHM</h3>
+        <p>
+          Intelligent fault diagnosis and prognostics for rotating machinery,
+          harmonic drives, and precision transmission systems.
+        </p>
+        <div class="research-tags">
+          <span>Fault Diagnosis</span>
+          <span>Harmonic Drive</span>
+          <span>PHM</span>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
 
 <section id="research" class="research">
 
