@@ -1,52 +1,888 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ISPL | Intelligent Signal Processing Laboratory</title>
+<title>ISPL | Intelligent Signal Processing Laboratory</title>
 
-  <meta name="description"
-        content="Intelligent Signal Processing Laboratory (ISPL) — Signal → Information → Intelligence.">
+<meta name="description"
+content="Intelligent Signal Processing Laboratory (ISPL) — intelligent signal processing, multichannel sensing, beamforming, machinery diagnostics, AI, and PHM.">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 80px 30px;
-      color: #0A2D5C;
-      background: #ffffff;
-    }
+<style>
+:root{
+  --navy:#0A2D5C;
+  --cyan:#00B4EB;
+  --blue:#2563EB;
+  --violet:#7A3BFF;
+  --graphite:#2B2B2B;
+  --gray:#D9DDE7;
+  --light:#F5F8FC;
+  --white:#FFFFFF;
+}
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    .tagline {
-      font-size: 1.5rem;
-      color: #2563EB;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .message {
-      margin-top: 15px;
-      font-size: 1.1rem;
-    }
-  </style>
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  color:var(--graphite);
+  background:var(--white);
+  line-height:1.65;
+}
+
+.container{
+  width:min(1180px, 90%);
+  margin:auto;
+}
+
+/* NAVIGATION */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid #e8edf4;
+}
+
+nav{
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+
+.brand-mark{
+  position:relative;
+  width:55px;
+  height:42px;
+}
+
+.channel{
+  position:absolute;
+  left:0;
+  height:5px;
+  border-radius:5px;
+  transform-origin:left center;
+}
+
+.c1{top:2px;width:48px;background:var(--navy);transform:rotate(18deg);}
+.c2{top:10px;width:48px;background:#1187ef;transform:rotate(9deg);}
+.c3{top:18px;width:48px;background:var(--cyan);}
+.c4{top:26px;width:48px;background:#1187ef;transform:rotate(-9deg);}
+.c5{top:34px;width:48px;background:var(--navy);transform:rotate(-18deg);}
+
+.node{
+  position:absolute;
+  width:15px;
+  height:15px;
+  right:0;
+  top:14px;
+  border-radius:50%;
+  background:white;
+  border:5px solid var(--navy);
+}
+
+.brand-text strong{
+  display:block;
+  color:var(--navy);
+  font-size:24px;
+  letter-spacing:2px;
+}
+
+.brand-text span{
+  display:block;
+  color:#607087;
+  font-size:11px;
+}
+
+.menu{
+  display:flex;
+  gap:28px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#3b4757;
+  font-size:14px;
+  font-weight:600;
+}
+
+.menu a:hover{
+  color:var(--blue);
+}
+
+/* HERO */
+
+.hero{
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 25%, rgba(0,180,235,.12), transparent 28%),
+    radial-gradient(circle at 75% 75%, rgba(122,59,255,.08), transparent 30%),
+    linear-gradient(135deg,#fff 0%,#f8fbff 100%);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:60px;
+}
+
+.eyebrow{
+  color:var(--blue);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:3px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  color:var(--navy);
+  font-size:clamp(45px,6vw,76px);
+  line-height:1.03;
+  letter-spacing:-2px;
+  margin-bottom:24px;
+}
+
+.hero h1 span{
+  display:block;
+  background:linear-gradient(90deg,var(--blue),var(--violet));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.tagline{
+  color:var(--navy);
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.slogan{
+  color:#66758a;
+  font-size:18px;
+  margin-bottom:28px;
+}
+
+.hero-description{
+  max-width:650px;
+  color:#596779;
+  margin-bottom:34px;
+}
+
+.buttons{
+  display:flex;
+  gap:14px;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 23px;
+  border-radius:7px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+}
+
+.primary{
+  color:white;
+  background:linear-gradient(90deg,var(--blue),var(--violet));
+}
+
+.secondary{
+  color:var(--navy);
+  border:1px solid #cbd6e5;
+  background:white;
+}
+
+/* HERO SIGNAL */
+
+.signal-visual{
+  height:400px;
+  position:relative;
+}
+
+.flow-line{
+  position:absolute;
+  left:5%;
+  width:75%;
+  height:10px;
+  border-radius:20px;
+  transform-origin:left center;
+  box-shadow:0 4px 14px rgba(37,99,235,.12);
+}
+
+.f1{top:65px;background:var(--navy);transform:rotate(18deg);}
+.f2{top:125px;background:#1187ef;transform:rotate(9deg);}
+.f3{top:190px;background:var(--cyan);}
+.f4{top:255px;background:#1187ef;transform:rotate(-9deg);}
+.f5{top:315px;background:var(--navy);transform:rotate(-18deg);}
+
+.flow-line:before{
+  content:"";
+  position:absolute;
+  left:-7px;
+  top:-4px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:inherit;
+}
+
+.intelligence-node{
+  position:absolute;
+  right:8%;
+  top:165px;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:white;
+  border:15px solid var(--navy);
+  box-shadow:0 0 0 10px rgba(0,180,235,.13);
+}
+
+.intelligence-node:after{
+  content:"";
+  position:absolute;
+  inset:7px;
+  border-radius:50%;
+  background:var(--cyan);
+}
+
+/* SECTIONS */
+
+section{
+  padding:95px 0;
+}
+
+.section-label{
+  color:var(--blue);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+.section-title{
+  color:var(--navy);
+  font-size:38px;
+  margin-bottom:18px;
+}
+
+.section-intro{
+  color:#68778b;
+  max-width:720px;
+  margin-bottom:45px;
+}
+
+/* RESEARCH */
+
+.research{
+  background:var(--light);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border:1px solid #e5ebf3;
+  border-radius:12px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 35px rgba(10,45,92,.08);
+}
+
+.number{
+  color:var(--cyan);
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.card h3{
+  color:var(--navy);
+  margin-bottom:12px;
+}
+
+.card p{
+  color:#6a7788;
+  font-size:14px;
+}
+
+/* FEATURED */
+
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.project{
+  min-height:290px;
+  padding:35px;
+  border-radius:14px;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  position:relative;
+  overflow:hidden;
+}
+
+.project:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(0,180,235,.45),transparent 30%);
+}
+
+.project:nth-child(1){
+  background:linear-gradient(135deg,#071e40,#0A2D5C);
+}
+
+.project:nth-child(2){
+  background:linear-gradient(135deg,#0A2D5C,#2563EB);
+}
+
+.project:nth-child(3){
+  background:linear-gradient(135deg,#2563EB,#7A3BFF);
+}
+
+.project h3,
+.project p{
+  position:relative;
+}
+
+.project h3{
+  font-size:23px;
+  margin-bottom:10px;
+}
+
+.project p{
+  opacity:.82;
+  font-size:14px;
+}
+
+/* PHILOSOPHY */
+
+.philosophy{
+  background:var(--navy);
+  color:white;
+  text-align:center;
+}
+
+.philosophy h2{
+  font-size:38px;
+  margin-bottom:20px;
+}
+
+.transform{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:22px;
+  margin-top:40px;
+  flex-wrap:wrap;
+}
+
+.transform span{
+  font-size:19px;
+  font-weight:700;
+}
+
+.arrow{
+  color:var(--cyan);
+  font-size:25px;
+}
+
+/* PEOPLE */
+
+.people-grid{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:50px;
+}
+
+.person{
+  padding:30px;
+  border-left:4px solid var(--blue);
+  background:var(--light);
+}
+
+.person h3{
+  color:var(--navy);
+  font-size:24px;
+}
+
+.person-role{
+  color:var(--blue);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+/* OPEN RESEARCH */
+
+.open{
+  background:var(--light);
+}
+
+.open-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.open-card{
+  padding:30px;
+  background:white;
+  border-radius:10px;
+  border:1px solid #e4eaf2;
+}
+
+.open-card h3{
+  color:var(--navy);
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#061b38;
+  color:#b9c7da;
+  padding:55px 0;
+}
+
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+}
+
+footer strong{
+  color:white;
+}
+
+.footer-tagline{
+  color:var(--cyan);
+  margin-top:10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .menu{
+    display:none;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .signal-visual{
+    height:330px;
+  }
+
+  .cards,
+  .featured-grid,
+  .open-grid{
+    grid-template-columns:1fr;
+  }
+
+  .people-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:80px 0;
+  }
+
+  .footer-grid{
+    flex-direction:column;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <h1>Intelligent Signal Processing Laboratory</h1>
+<header>
+  <div class="container">
+    <nav>
 
-  <p class="tagline">
-    Signal → Information → Intelligence
+      <a class="brand" href="#">
+        <div class="brand-mark">
+          <span class="channel c1"></span>
+          <span class="channel c2"></span>
+          <span class="channel c3"></span>
+          <span class="channel c4"></span>
+          <span class="channel c5"></span>
+          <span class="node"></span>
+        </div>
+
+        <div class="brand-text">
+          <strong>ISPL</strong>
+          <span>Intelligent Signal Processing Laboratory</span>
+        </div>
+      </a>
+
+      <div class="menu">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#people">People</a>
+        <a href="#open">Publications</a>
+        <a href="#open">Code & Data</a>
+        <a href="#about">About</a>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="eyebrow">
+        INTELLIGENT SIGNAL PROCESSING LABORATORY
+      </div>
+
+      <h1>
+        From Signals
+        <span>to Intelligence.</span>
+      </h1>
+
+      <div class="tagline">
+        Signal → Information → Intelligence
+      </div>
+
+      <div class="slogan">
+        A Smarter Tomorrow from Signals.
+      </div>
+
+      <p class="hero-description">
+        We develop intelligent signal processing methods that transform
+        complex multi-sensor measurements into reliable information and
+        actionable intelligence for machinery diagnostics, intelligent
+        monitoring, and predictive maintenance.
+      </p>
+
+      <div class="buttons">
+        <a class="btn primary" href="#research">Explore Research</a>
+        <a class="btn secondary" href="#open">Code & Datasets</a>
+      </div>
+
+    </div>
+
+    <div class="signal-visual">
+      <div class="flow-line f1"></div>
+      <div class="flow-line f2"></div>
+      <div class="flow-line f3"></div>
+      <div class="flow-line f4"></div>
+      <div class="flow-line f5"></div>
+      <div class="intelligence-node"></div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="research" class="research">
+
+<div class="container">
+
+  <div class="section-label">RESEARCH</div>
+  <h2 class="section-title">Research Areas</h2>
+
+  <p class="section-intro">
+    ISPL investigates signal-centric intelligence for complex engineering
+    systems, with emphasis on multichannel sensing, physics-guided
+    processing, fault diagnostics, and predictive maintenance.
   </p>
 
-  <p class="message">
-    A Smarter Tomorrow from Signals.
+  <div class="cards">
+
+    <div class="card">
+      <div class="number">01</div>
+      <h3>Intelligent Signal Processing</h3>
+      <p>
+        Advanced signal representations, feature enhancement,
+        noise suppression, and data-driven analysis.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">02</div>
+      <h3>Multichannel Sensing & Sensor Fusion</h3>
+      <p>
+        Fusion of distributed and multi-axis measurements for
+        robust condition monitoring.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">03</div>
+      <h3>Physics-Guided Beamforming</h3>
+      <p>
+        Physics-informed steering and spatial filtering for
+        weak fault-signal enhancement.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">04</div>
+      <h3>Machinery Diagnostics</h3>
+      <p>
+        Signal-based fault detection and diagnosis for rotating
+        machinery and precision transmission systems.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">05</div>
+      <h3>Artificial Intelligence</h3>
+      <p>
+        Machine learning and deep learning for intelligent
+        interpretation of engineering signals.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">06</div>
+      <h3>PHM</h3>
+      <p>
+        Prognostics and health management for reliable,
+        condition-aware industrial systems.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+
+<section id="projects">
+
+<div class="container">
+
+  <div class="section-label">CURRENT WORK</div>
+  <h2 class="section-title">Featured Research</h2>
+
+  <p class="section-intro">
+    Selected research directions connecting physical understanding,
+    multichannel signal processing, and intelligent machinery diagnostics.
   </p>
+
+  <div class="featured-grid">
+
+    <div class="project">
+      <h3>Physics-Guided Beamforming</h3>
+      <p>
+        Physics-informed spatial filtering and robust fault-feature enhancement.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Multichannel Fault Signal Enhancement</h3>
+      <p>
+        Transforming weak and noisy multi-sensor measurements into
+        interpretable diagnostic information.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Harmonic Drive Diagnostics</h3>
+      <p>
+        Intelligent condition monitoring for precision transmission
+        and harmonic drive systems.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+
+<section class="philosophy">
+
+<div class="container">
+
+  <div class="section-label" style="color:#00B4EB;">
+    OUR PHILOSOPHY
+  </div>
+
+  <h2>Transforming Signals into Engineering Intelligence</h2>
+
+  <p>
+    We connect sensing, signal processing, physical knowledge,
+    and artificial intelligence to understand complex engineering systems.
+  </p>
+
+  <div class="transform">
+    <span>Sense</span>
+    <span class="arrow">→</span>
+    <span>Process</span>
+    <span class="arrow">→</span>
+    <span>Understand</span>
+    <span class="arrow">→</span>
+    <span>Predict</span>
+  </div>
+
+</div>
+</section>
+
+
+<section id="people">
+
+<div class="container">
+
+  <div class="section-label">PEOPLE</div>
+  <h2 class="section-title">People</h2>
+
+  <div class="people-grid">
+
+    <div class="person">
+      <div class="person-role">PRINCIPAL INVESTIGATOR</div>
+      <h3>T.-Y. Yu</h3>
+      <p>
+        Intelligent signal processing, machinery diagnostics,
+        multichannel sensing, AI, and PHM.
+      </p>
+    </div>
+
+    <div>
+      <h3 style="color:#0A2D5C;margin-bottom:15px;">
+        Research Team
+      </h3>
+
+      <p style="color:#68778b;">
+        ISPL provides a research environment for students interested in
+        signal processing, artificial intelligence, intelligent sensing,
+        rotating machinery diagnostics, embedded systems, and industrial
+        condition monitoring.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+
+<section id="open" class="open">
+
+<div class="container">
+
+  <div class="section-label">OPEN RESEARCH</div>
+  <h2 class="section-title">Publications, Code & Data</h2>
+
+  <p class="section-intro">
+    Research outputs, reproducible implementations, and selected datasets
+    will be released through the ISPL open research ecosystem.
+  </p>
+
+  <div class="open-grid">
+
+    <div class="open-card">
+      <h3>Publications</h3>
+      <p>
+        Journal papers, conference publications, and technical research outputs.
+      </p>
+    </div>
+
+    <div class="open-card">
+      <h3>Source Code</h3>
+      <p>
+        Reproducible signal-processing and intelligent-diagnostics implementations.
+      </p>
+    </div>
+
+    <div class="open-card">
+      <h3>Datasets</h3>
+      <p>
+        Selected experimental and benchmark datasets for research and education.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+</main>
+
+
+<footer id="about">
+
+<div class="container footer-grid">
+
+  <div>
+    <strong>Intelligent Signal Processing Laboratory (ISPL)</strong>
+
+    <div class="footer-tagline">
+      Signal → Information → Intelligence
+    </div>
+
+    <p>A Smarter Tomorrow from Signals.</p>
+  </div>
+
+  <div>
+    <strong>Current Affiliation</strong>
+
+    <p>
+      Department of Computer Science and Information Engineering<br>
+      National Taichung University of Science and Technology<br>
+      Taichung, Taiwan
+    </p>
+  </div>
+
+</div>
+
+<div class="container"
+     style="margin-top:40px;padding-top:25px;border-top:1px solid #17375e;font-size:13px;">
+
+  © 2026 Intelligent Signal Processing Laboratory (ISPL).
+
+</div>
+
+</footer>
 
 </body>
 </html>
