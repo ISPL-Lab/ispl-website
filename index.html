@@ -780,12 +780,12 @@ footer strong{
 </a>
 
 <div class="menu">
-  <a href="#research">Research</a>
-  <a href="#projects">Projects</a>
-  <a href="#people">People</a>
-  <a href="#publications">Publications</a>
-  <a href="#code">Code & Data</a>
-  <a href="#about">About</a>
+  <a href="#research" data-i18n="nav.research">Research</a>
+  <a href="#projects" data-i18n="nav.projects">Projects</a>
+  <a href="#people" data-i18n="nav.people">People</a>
+  <a href="#publications" data-i18n="nav.publications">Publications</a>
+  <a href="#code" data-i18n="nav.code">Code & Data</a>
+  <a href="#about" data-i18n="nav.about">About</a>
 
   <div class="language-switcher">
     <button class="language-button" id="languageButton">
@@ -819,19 +819,19 @@ footer strong{
       </div>
 
       <h1>
-        From Signals
-        <span>to Intelligence.</span>
+      <span class="hero-line" data-i18n="hero.title1">From Signals</span>
+      <span data-i18n="hero.title2">to Intelligence.</span>
       </h1>
 
-      <div class="tagline">
+      <div class="tagline" data-i18n="hero.tagline">
         Signal → Information → Intelligence
       </div>
 
-      <div class="slogan">
+      <div class="slogan" data-i18n="hero.slogan">
         A Smarter Tomorrow from Signals.
       </div>
 
-      <p class="hero-description">
+      <p class="hero-description" data-i18n="hero.description">
         We develop intelligent signal processing methods that transform
         complex multi-sensor measurements into reliable information and
         actionable intelligence for machinery diagnostics, intelligent
@@ -839,8 +839,8 @@ footer strong{
       </p>
 
       <div class="buttons">
-        <a class="btn primary" href="#research">Explore Research</a>
-        <a class="btn secondary" href="#open">Code & Datasets</a>
+        <a class="btn primary" href="#research" data-i18n="hero.explore">Explore Research</a>
+        <a class="btn secondary" href="#open" data-i18n="hero.code">Code & Datasets</a>
       </div>
 
     </div>
@@ -860,9 +860,13 @@ footer strong{
   <div class="container">
 
     <div class="section-heading">
-      <span class="section-kicker">RESEARCH AREAS</span>
-      <h2>Turning Signals into<br>Engineering Intelligence.</h2>
-      <p>
+      <span class="section-kicker" data-i18n="research.kicker">
+        RESEARCH AREAS
+      </span>
+      <h2 data-i18n="research.title">
+        Turning Signals into<br>Engineering Intelligence.
+      </h2>
+      <p data-i18n="research.description">
         Our research integrates signal processing, multi-sensor sensing,
         physics-guided methods, and artificial intelligence for intelligent
         machinery monitoring and predictive maintenance.
@@ -873,8 +877,10 @@ footer strong{
 
       <article class="research-card">
         <div class="research-number">01</div>
-        <h3>Intelligent Signal<br>Processing</h3>
-        <p>
+        <h3 data-i18n="research.r1.title">
+          Intelligent Signal<br>Processing
+        </h3>
+        <p data-i18n="research.r1.description">
           Advanced signal analysis and feature extraction for complex,
           non-stationary, and noise-contaminated engineering signals.
         </p>
@@ -887,8 +893,11 @@ footer strong{
 
       <article class="research-card">
         <div class="research-number">02</div>
-        <h3>Multichannel Sensing<br>& Sensor Fusion</h3>
-        <p>
+        <h3 data-i18n="research.r2.title">
+          Multichannel Sensing<br>& Sensor Fusion
+        </h3>
+        
+        <p data-i18n="research.r2.description">
           Multichannel vibration, current, and heterogeneous sensing for
           reliable information extraction and condition monitoring.
         </p>
@@ -901,8 +910,11 @@ footer strong{
 
       <article class="research-card featured">
         <div class="research-number">03</div>
-        <h3>Physics-Guided<br>Beamforming</h3>
-        <p>
+        <h3 data-i18n="research.r3.title">
+          Physics-Guided<br>Beamforming
+        </h3>
+        
+        <p data-i18n="research.r3.description">
           Physics-guided steering and spatial filtering methods for enhancing
           weak fault-related components in rotating machinery.
         </p>
@@ -915,8 +927,11 @@ footer strong{
 
       <article class="research-card">
         <div class="research-number">04</div>
-        <h3>Machinery Diagnostics<br>& PHM</h3>
-        <p>
+        <h3 data-i18n="research.r4.title">
+          Machinery Diagnostics<br>& PHM
+        </h3>
+        
+        <p data-i18n="research.r4.description">
           Intelligent fault diagnosis and prognostics for rotating machinery,
           harmonic drives, and precision transmission systems.
         </p>
@@ -1195,6 +1210,177 @@ footer strong{
 </footer>
 
 <script>
+const translations = {
+
+  en: {
+    "nav.research": "Research",
+    "nav.projects": "Projects",
+    "nav.people": "People",
+    "nav.publications": "Publications",
+    "nav.code": "Code & Data",
+    "nav.about": "About",
+
+    "hero.title1": "From Signals",
+    "hero.title2": "to Intelligence.",
+    "hero.tagline": "Signal → Information → Intelligence",
+    "hero.slogan": "A Smarter Tomorrow from Signals.",
+    "hero.description":
+      "We develop intelligent signal processing methods that transform complex multi-sensor measurements into reliable information and actionable intelligence for machinery diagnostics, intelligent monitoring, and predictive maintenance.",
+    "hero.explore": "Explore Research",
+    "hero.code": "Code & Datasets",
+
+    "research.kicker": "RESEARCH AREAS",
+    "research.title":
+      "Turning Signals into<br>Engineering Intelligence.",
+    "research.description":
+      "Our research integrates signal processing, multi-sensor sensing, physics-guided methods, and artificial intelligence for intelligent machinery monitoring and predictive maintenance.",
+
+    "research.r1.title":
+      "Intelligent Signal<br>Processing",
+    "research.r1.description":
+      "Advanced signal analysis and feature extraction for complex, non-stationary, and noise-contaminated engineering signals.",
+
+    "research.r2.title":
+      "Multichannel Sensing<br>& Sensor Fusion",
+    "research.r2.description":
+      "Multichannel vibration, current, and heterogeneous sensing for reliable information extraction and condition monitoring.",
+
+    "research.r3.title":
+      "Physics-Guided<br>Beamforming",
+    "research.r3.description":
+      "Physics-guided steering and spatial filtering methods for enhancing weak fault-related components in rotating machinery.",
+
+    "research.r4.title":
+      "Machinery Diagnostics<br>& PHM",
+    "research.r4.description":
+      "Intelligent fault diagnosis and prognostics for rotating machinery, harmonic drives, and precision transmission systems."
+  },
+
+
+  "zh-TW": {
+    "nav.research": "研究領域",
+    "nav.projects": "研究計畫",
+    "nav.people": "研究團隊",
+    "nav.publications": "研究成果",
+    "nav.code": "程式與資料",
+    "nav.about": "關於我們",
+
+    "hero.title1": "從訊號出發",
+    "hero.title2": "邁向智慧。",
+    "hero.tagline": "訊號 → 資訊 → 智慧",
+    "hero.slogan": "從訊號，開創更智慧的未來。",
+    "hero.description":
+      "我們致力於發展智慧訊號處理方法，將複雜的多感測器量測訊號轉化為可靠資訊與可應用的智慧，應用於機械故障診斷、智慧監測與預知維護。",
+    "hero.explore": "探索研究",
+    "hero.code": "程式與資料集",
+
+    "research.kicker": "研究領域",
+    "research.title":
+      "從訊號分析<br>邁向工程智慧。",
+    "research.description":
+      "本實驗室整合訊號處理、多感測器感測、物理導向方法與人工智慧，發展智慧機械監測與預知維護技術。",
+
+    "research.r1.title":
+      "智慧訊號<br>處理",
+    "research.r1.description":
+      "針對複雜、非穩態及受雜訊干擾的工程訊號，發展先進訊號分析與故障特徵擷取方法。",
+
+    "research.r2.title":
+      "多通道感測<br>與感測器融合",
+    "research.r2.description":
+      "整合多通道振動、電流及異質感測訊號，以提升資訊擷取與設備狀態監測的可靠度。",
+
+    "research.r3.title":
+      "物理導向<br>波束成形",
+    "research.r3.description":
+      "結合物理導向轉向向量與空間濾波方法，增強旋轉機械中的微弱故障相關訊號成分。",
+
+    "research.r4.title":
+      "機械故障診斷<br>與 PHM",
+    "research.r4.description":
+      "針對旋轉機械、諧波減速機與精密傳動系統，發展智慧故障診斷、預測與健康管理技術。"
+  },
+
+
+  ja: {
+    "nav.research": "研究分野",
+    "nav.projects": "研究プロジェクト",
+    "nav.people": "メンバー",
+    "nav.publications": "研究成果",
+    "nav.code": "コード・データ",
+    "nav.about": "研究室紹介",
+
+    "hero.title1": "信号から",
+    "hero.title2": "知能へ。",
+    "hero.tagline": "信号 → 情報 → 知能",
+    "hero.slogan": "信号から、よりスマートな未来へ。",
+    "hero.description":
+      "複雑なマルチセンサ計測信号を信頼性の高い情報と実用的な知能へ変換するインテリジェント信号処理技術を開発し、機械診断、インテリジェントモニタリング、予知保全への応用を目指しています。",
+    "hero.explore": "研究を見る",
+    "hero.code": "コード・データセット",
+
+    "research.kicker": "研究分野",
+    "research.title":
+      "信号から<br>エンジニアリング・インテリジェンスへ。",
+    "research.description":
+      "信号処理、マルチセンサ計測、物理指向型手法、人工知能を統合し、機械のインテリジェントモニタリングと予知保全に関する研究を行っています。",
+
+    "research.r1.title":
+      "インテリジェント<br>信号処理",
+    "research.r1.description":
+      "複雑・非定常・雑音環境下の工学信号を対象に、高度な信号解析と特徴抽出手法を研究します。",
+
+    "research.r2.title":
+      "マルチチャネル計測<br>・センサフュージョン",
+    "research.r2.description":
+      "振動、電流、異種センサによるマルチチャネル計測を統合し、信頼性の高い情報抽出と状態監視を実現します。",
+
+    "research.r3.title":
+      "物理指向型<br>ビームフォーミング",
+    "research.r3.description":
+      "物理情報に基づくステアリングと空間フィルタリングにより、回転機械における微弱な故障関連成分を強調します。",
+
+    "research.r4.title":
+      "機械診断<br>・PHM",
+    "research.r4.description":
+      "回転機械、ハーモニックドライブ、精密伝動システムを対象に、知的故障診断と予知・健全性管理技術を研究します。"
+  }
+
+};
+function setLanguage(lang){
+
+  const dictionary = translations[lang];
+
+  if(!dictionary) return;
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+
+    const key = element.dataset.i18n;
+
+    if(dictionary[key] !== undefined){
+      element.innerHTML = dictionary[key];
+    }
+
+  });
+
+  document.documentElement.lang = lang;
+
+  localStorage.setItem("ispl-language", lang);
+
+  if(lang === "en"){
+    currentLanguage.textContent = "EN";
+  }
+
+  if(lang === "zh-TW"){
+    currentLanguage.textContent = "繁中";
+  }
+
+  if(lang === "ja"){
+    currentLanguage.textContent = "JP";
+  }
+
+}
+
 const languageButton = document.getElementById("languageButton");
 const languageMenu = document.getElementById("languageMenu");
 const currentLanguage = document.getElementById("currentLanguage");
@@ -1214,19 +1400,7 @@ document.querySelectorAll(".language-menu button").forEach(button => {
 
     const lang = this.dataset.lang;
 
-    localStorage.setItem("ispl-language", lang);
-
-    if(lang === "en"){
-      currentLanguage.textContent = "EN";
-    }
-
-    if(lang === "zh-TW"){
-      currentLanguage.textContent = "繁中";
-    }
-
-    if(lang === "ja"){
-      currentLanguage.textContent = "JP";
-    }
+    setLanguage(lang);
 
     languageMenu.classList.remove("active");
   });
@@ -1236,17 +1410,7 @@ document.querySelectorAll(".language-menu button").forEach(button => {
 const savedLanguage =
   localStorage.getItem("ispl-language") || "en";
 
-if(savedLanguage === "en"){
-  currentLanguage.textContent = "EN";
-}
-
-if(savedLanguage === "zh-TW"){
-  currentLanguage.textContent = "繁中";
-}
-
-if(savedLanguage === "ja"){
-  currentLanguage.textContent = "JP";
-}
+setLanguage(savedLanguage);
 </script>
 </body>
 </html>
