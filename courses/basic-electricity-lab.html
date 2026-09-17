@@ -68,61 +68,12 @@
       text-decoration: none;
     }
 
-    .brand-symbol {
-      position: relative;
-      width: 66px;
-      height: 48px;
-    }
-
-    .brand-symbol span {
-      position: absolute;
-      left: 0;
-      height: 5px;
-      border-radius: 99px;
-      background: linear-gradient(90deg, var(--cyan), var(--blue));
-      transform-origin: left center;
-    }
-
-    .brand-symbol span:nth-child(1) {
-      top: 4px;
-      width: 48px;
-      transform: rotate(20deg);
-    }
-
-    .brand-symbol span:nth-child(2) {
-      top: 14px;
-      width: 51px;
-      transform: rotate(10deg);
-    }
-
-    .brand-symbol span:nth-child(3) {
-      top: 23px;
-      width: 54px;
-    }
-
-    .brand-symbol span:nth-child(4) {
-      top: 32px;
-      width: 51px;
-      transform: rotate(-10deg);
-    }
-
-    .brand-symbol span:nth-child(5) {
-      top: 42px;
-      width: 48px;
-      transform: rotate(-20deg);
-    }
-
-    .brand-symbol::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 16px;
-      width: 15px;
-      height: 15px;
-      border: 4px solid var(--navy);
-      border-radius: 50%;
-      background: white;
-    }
+   .brand-logo {
+  width: 72px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 
     .brand-name {
       font-size: 27px;
@@ -438,13 +389,9 @@
 
     <a href="../index.html" class="brand">
 
-      <div class="brand-symbol">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <img src="../assets/images/ispl-symbol.png"
+     alt="ISPL Logo"
+     class="brand-logo">
 
       <div>
         <div class="brand-name">ISPL</div>
