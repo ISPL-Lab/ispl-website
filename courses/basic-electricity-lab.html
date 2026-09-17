@@ -1,1 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>基本電學實習 | ISPL Teaching</title>
+
+  <style>
+    :root {
+      --navy: #082f63;
+      --blue: #1769ff;
+      --cyan: #00a8ff;
+      --text: #53677f;
+      --light: #f5f9fe;
+      --line: #dce7f3;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .brand-symbol {
+      position: relative;
+      width: 66px;
+      height: 48px;
+    }
+
+    .brand-symbol span {
+      position: absolute;
+      left: 0;
+      height: 5px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      transform-origin: left center;
+    }
+
+    .brand-symbol span:nth-child(1) {
+      top: 4px;
+      width: 48px;
+      transform: rotate(20deg);
+    }
+
+    .brand-symbol span:nth-child(2) {
+      top: 14px;
+      width: 51px;
+      transform: rotate(10deg);
+    }
+
+    .brand-symbol span:nth-child(3) {
+      top: 23px;
+      width: 54px;
+    }
+
+    .brand-symbol span:nth-child(4) {
+      top: 32px;
+      width: 51px;
+      transform: rotate(-10deg);
+    }
+
+    .brand-symbol span:nth-child(5) {
+      top: 42px;
+      width: 48px;
+      transform: rotate(-20deg);
+    }
+
+    .brand-symbol::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 16px;
+      width: 15px;
+      height: 15px;
+      border: 4px solid var(--navy);
+      border-radius: 50%;
+      background: white;
+    }
+
+    .brand-name {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: #65778e;
+      font-size: 12px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .back-link {
+      color: #34465b;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--blue);
+    }
+
+
+    /* LANGUAGE */
+
+    .language-selector {
+      position: relative;
+    }
+
+    .language-button {
+      padding: 11px 15px;
+      border: 1px solid #d4e0ee;
+      border-radius: 11px;
+      background: white;
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .language-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      display: none;
+      width: 150px;
+      padding: 7px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(8,47,99,.12);
+    }
+
+    .language-menu.active {
+      display: block;
+    }
+
+    .language-menu button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .language-menu button:hover {
+      background: var(--light);
+    }
+
+
+    /* =========================
+       COURSE HERO
+    ========================= */
+
+    .course-hero {
+      padding: 90px 0 75px;
+      background:
+        radial-gradient(circle at 82% 25%, rgba(0,168,255,.12), transparent 27%),
+        linear-gradient(180deg, #f5f9ff 0%, #ffffff 100%);
+    }
+
+    .breadcrumb {
+      margin-bottom: 35px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .course-category {
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .course-hero h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .english-title {
+      margin-top: 14px;
+      color: #536b87;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .course-description {
+      max-width: 760px;
+      margin: 32px 0 0;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .course-meta span {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       MATERIALS
+    ========================= */
+
+    .materials {
+      padding: 90px 0 120px;
+    }
+
+    .section-kicker {
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .materials h2 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -1px;
+    }
+
+    .materials-intro {
+      max-width: 720px;
+      margin: 20px 0 50px;
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .material-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .material-card {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 30px 32px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+      transition: .2s ease;
+    }
+
+    .material-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(8,47,99,.08);
+      border-color: #bfd5ef;
+    }
+
+    .material-number {
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .material-type {
+      margin-bottom: 7px;
+      color: #66809e;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
+
+    .material-info h3 {
+      margin: 0 0 7px;
+      font-size: 22px;
+    }
+
+    .material-info p {
+      margin: 0;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .download-area {
+      display: flex;
+      gap: 8px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      min-width: 65px;
+      padding: 10px 13px;
+      border: 1px solid #cddced;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #f7faff;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      color: white;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .coming-soon {
+      color: #8291a3;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 40px 0;
+      background: #062b59;
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      .container {
+        width: min(100% - 30px, 1180px);
+      }
+
+      .brand-subtitle {
+        display: none;
+      }
+
+      .back-link {
+        display: none;
+      }
+
+      .course-hero {
+        padding: 65px 0;
+      }
+
+      .material-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .download-area {
+        margin-top: 5px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <a href="../index.html" class="brand">
+
+      <div class="brand-symbol">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div>
+        <div class="brand-name">ISPL</div>
+        <div class="brand-subtitle">
+          Intelligent Signal Processing Laboratory
+        </div>
+      </div>
+
+    </a>
+
+
+    <div class="nav-right">
+
+      <a href="../index.html#teaching"
+         class="back-link"
+         data-en="← Teaching"
+         data-zh="← 返回教學資源"
+         data-ja="← 教育リソース">
+        ← 返回教學資源
+      </a>
+
+
+      <div class="language-selector">
+
+        <button class="language-button"
+                id="languageButton">
+          <span id="currentLanguage">繁中</span>⌄
+        </button>
+
+        <div class="language-menu"
+             id="languageMenu">
+
+          <button data-lang="zh-TW">繁體中文</button>
+          <button data-lang="en">English</button>
+          <button data-lang="ja">日本語</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <!-- =========================
+       COURSE HERO
+  ========================== -->
+
+  <section class="course-hero">
+
+    <div class="container">
+
+      <div class="breadcrumb"
+           data-en="ISPL TEACHING / LABORATORY"
+           data-zh="ISPL 教學資源 / 實習課程"
+           data-ja="ISPL 教育リソース / 実験科目">
+        ISPL 教學資源 / 實習課程
+      </div>
+
+      <div class="course-category"
+           data-en="LABORATORY COURSE"
+           data-zh="實習課程"
+           data-ja="実験科目">
+        實習課程
+      </div>
+
+      <h1 data-en="Basic Electricity Laboratory"
+          data-zh="基本電學實習"
+          data-ja="基礎電気学実験">
+        基本電學實習
+      </h1>
+
+      <div class="english-title">
+        Basic Electricity Laboratory
+      </div>
+
+      <p class="course-description"
+         data-en="Hands-on engineering training in electronic components, measurement instruments, soldering techniques, basic circuits, and oscilloscope operation."
+         data-zh="透過電子元件識別、量測儀器、焊接技術、基礎電路與示波器操作，建立從基本電學概念到工程實作的能力。"
+         data-ja="電子部品、計測機器、はんだ付け、基本回路、オシロスコープ操作を通して、基礎概念から工学実践へつながる能力を養います。">
+        透過電子元件識別、量測儀器、焊接技術、基礎電路與示波器操作，建立從基本電學概念到工程實作的能力。
+      </p>
+
+      <div class="course-meta">
+        <span>Laboratory</span>
+        <span>AI-Assisted Learning</span>
+        <span>Slides</span>
+        <span>Engineering Practice</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MATERIALS
+  ========================== -->
+
+  <section class="materials">
+
+    <div class="container">
+
+      <div class="section-kicker"
+           data-en="COURSE MATERIALS"
+           data-zh="課程教材"
+           data-ja="コース教材">
+        課程教材
+      </div>
+
+      <h2 data-en="Learning Materials"
+          data-zh="學習與實習教材"
+          data-ja="学習・実験教材">
+        學習與實習教材
+      </h2>
+
+      <p class="materials-intro"
+         data-en="Course materials are organized by topic. Selected lecture slides and AI-assisted teaching materials are available for students."
+         data-zh="教材依主題整理，提供課堂投影片、實習內容與 AI 輔助教學資源，供學生課前預習與課後複習使用。"
+         data-ja="教材はテーマ別に整理され、講義スライド、実験内容、AI支援教材を予習・復習に利用できます。">
+        教材依主題整理，提供課堂投影片、實習內容與 AI 輔助教學資源，供學生課前預習與課後複習使用。
+      </p>
+
+
+      <div class="material-list">
+
+        <!-- 01 -->
+        <article class="material-card">
+
+          <div class="material-number">01</div>
+
+          <div class="material-info">
+
+            <div class="material-type">AI-ASSISTED MATERIAL</div>
+
+            <h3 data-en="Electronic Component Identification"
+                data-zh="電子零件識別"
+                data-ja="電子部品の識別">
+              電子零件識別
+            </h3>
+
+            <p data-en="Resistors, capacitors, inductors, transformers, diodes, and transistors."
+               data-zh="電阻、電容、電感、變壓器、二極體與電晶體之實體、符號與用途。"
+               data-ja="抵抗器、コンデンサ、インダクタ、変圧器、ダイオード、トランジスタを学びます。">
+              電阻、電容、電感、變壓器、二極體與電晶體之實體、符號與用途。
+            </p>
+
+          </div>
+
+          <div class="download-area">
+            <span class="coming-soon"
+                  data-en="Coming soon"
+                  data-zh="教材準備中"
+                  data-ja="準備中">
+              教材準備中
+            </span>
+          </div>
+
+        </article>
+
+
+        <!-- 02 -->
+        <article class="material-card">
+
+          <div class="material-number">02</div>
+
+          <div class="material-info">
+
+            <div class="material-type">INSTRUMENTATION</div>
+
+            <h3 data-en="Digital Multimeter"
+                data-zh="數位電表操作"
+                data-ja="デジタルマルチメータ">
+              數位電表操作
+            </h3>
+
+            <p data-en="Voltage, current, resistance, continuity, and safe measurement practices."
+               data-zh="電壓、電流、電阻、導通量測與安全操作方法。"
+               data-ja="電圧、電流、抵抗、導通測定および安全な測定方法を学びます。">
+              電壓、電流、電阻、導通量測與安全操作方法。
+            </p>
+
+          </div>
+
+          <div class="download-area">
+            <span class="coming-soon"
+                  data-en="Coming soon"
+                  data-zh="教材準備中"
+                  data-ja="準備中">
+              教材準備中
+            </span>
+          </div>
+
+        </article>
+
+
+        <!-- 03 -->
+        <article class="material-card">
+
+          <div class="material-number">03</div>
+
+          <div class="material-info">
+
+            <div class="material-type">ENGINEERING PRACTICE</div>
+
+            <h3 data-en="Soldering & Electronic Workmanship"
+                data-zh="焊接與電子工法"
+                data-ja="はんだ付けと電子工作">
+              焊接與電子工法
+            </h3>
+
+            <p data-en="Soldering iron operation, wire preparation, component forming, soldering, and lead trimming."
+               data-zh="電烙鐵操作、裸銅線處理、元件折腳、焊接與剪腳等基本電子工法。"
+               data-ja="はんだごて操作、配線処理、部品成形、はんだ付けなどを実習します。">
+              電烙鐵操作、裸銅線處理、元件折腳、焊接與剪腳等基本電子工法。
+            </p>
+
+          </div>
+
+          <div class="download-area">
+            <span class="coming-soon"
+                  data-en="Coming soon"
+                  data-zh="教材準備中"
+                  data-ja="準備中">
+              教材準備中
+            </span>
+          </div>
+
+        </article>
+
+
+        <!-- 04 -->
+        <article class="material-card">
+
+          <div class="material-number">04</div>
+
+          <div class="material-info">
+
+            <div class="material-type">INSTRUMENTATION</div>
+
+            <h3 data-en="Oscilloscope Operation"
+                data-zh="示波器基本操作"
+                data-ja="オシロスコープ操作">
+              示波器基本操作
+            </h3>
+
+            <p data-en="Waveform observation, voltage and time measurements, triggering, and basic oscilloscope controls."
+               data-zh="波形觀察、電壓與時間量測、觸發設定及示波器基本控制。"
+               data-ja="波形観測、電圧・時間測定、トリガ設定などを学びます。">
+              波形觀察、電壓與時間量測、觸發設定及示波器基本控制。
+            </p>
+
+          </div>
+
+          <div class="download-area">
+            <span class="coming-soon"
+                  data-en="Coming soon"
+                  data-zh="教材準備中"
+                  data-ja="準備中">
+              教材準備中
+            </span>
+          </div>
+
+        </article>
+
+
+        <!-- 05 -->
+        <article class="material-card">
+
+          <div class="material-number">05</div>
+
+          <div class="material-info">
+
+            <div class="material-type">SAFETY</div>
+
+            <h3 data-en="Electrical Safety"
+                data-zh="工業安全與衛生－感電篇"
+                data-ja="電気安全">
+              工業安全與衛生－感電篇
+            </h3>
+
+            <p data-en="Electrical hazards, electric shock prevention, and safe laboratory practices."
+               data-zh="認識感電危害、預防方法與實驗室安全操作原則。"
+               data-ja="感電事故の危険性、予防方法、安全な実験室作業を学びます。">
+              認識感電危害、預防方法與實驗室安全操作原則。
+            </p>
+
+          </div>
+
+          <div class="download-area">
+            <span class="coming-soon"
+                  data-en="Coming soon"
+                  data-zh="教材準備中"
+                  data-ja="準備中">
+              教材準備中
+            </span>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container">
+    © 2026 Intelligent Signal Processing Laboratory · ISPL
+  </div>
+</footer>
+
+
+<script>
+
+  const languageButton =
+    document.getElementById("languageButton");
+
+  const languageMenu =
+    document.getElementById("languageMenu");
+
+  const currentLanguage =
+    document.getElementById("currentLanguage");
+
+
+  function setLanguage(lang) {
+
+    let dataKey = "zh";
+
+    if (lang === "en") {
+      dataKey = "en";
+    }
+
+    if (lang === "ja") {
+      dataKey = "ja";
+    }
+
+    document.querySelectorAll("[data-" + dataKey + "]")
+      .forEach(element => {
+
+        const text =
+          element.getAttribute("data-" + dataKey);
+
+        if (text) {
+          element.innerHTML = text;
+        }
+
+      });
+
+
+    if (lang === "zh-TW") {
+      document.documentElement.lang = "zh-Hant";
+      currentLanguage.textContent = "繁中";
+    }
+
+    if (lang === "en") {
+      document.documentElement.lang = "en";
+      currentLanguage.textContent = "EN";
+    }
+
+    if (lang === "ja") {
+      document.documentElement.lang = "ja";
+      currentLanguage.textContent = "JP";
+    }
+
+    localStorage.setItem("ispl-language", lang);
+
+  }
+
+
+  languageButton.addEventListener("click", function(event) {
+    event.stopPropagation();
+    languageMenu.classList.toggle("active");
+  });
+
+
+  document.addEventListener("click", function() {
+    languageMenu.classList.remove("active");
+  });
+
+
+  document.querySelectorAll(".language-menu button")
+    .forEach(button => {
+
+      button.addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        setLanguage(this.dataset.lang);
+
+        languageMenu.classList.remove("active");
+
+      });
+
+    });
+
+
+  const savedLanguage =
+    localStorage.getItem("ispl-language") || "zh-TW";
+
+  setLanguage(savedLanguage);
+
+</script>
+
+</body>
+</html>
