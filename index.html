@@ -1067,6 +1067,102 @@ footer strong{
   }
 
 } 
+/* =========================================
+   03 — STUDENT RESEARCHERS
+========================================= */
+
+.student-team-card {
+  position: relative;
+  margin-top: 28px;
+  padding: 42px 48px;
+  border: 1px solid #d9e5f3;
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 92% 20%,
+      rgba(20, 184, 230, 0.10),
+      transparent 26%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f8fbff 65%,
+      #f1f7ff 100%
+    );
+  overflow: hidden;
+}
+
+/* decorative intelligence node */
+.student-team-card::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  right: -65px;
+  bottom: -85px;
+  border: 24px solid rgba(26, 126, 230, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.student-team-number {
+  margin-bottom: 38px;
+  color: #1769ff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.student-team-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.student-team-content .member-label {
+  margin-bottom: 14px;
+  color: #1769ff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.student-team-content h3 {
+  margin: 0 0 18px;
+  color: #07356d;
+  font-size: clamp(28px, 2.5vw, 38px);
+  line-height: 1.2;
+}
+
+.student-team-content p {
+  max-width: 900px;
+  margin: 0 0 26px;
+  color: #68778b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.student-team-content .member-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .student-team-card {
+    padding: 30px 24px;
+    border-radius: 20px;
+  }
+
+  .student-team-number {
+    margin-bottom: 28px;
+  }
+
+  .student-team-content p {
+    font-size: 16px;
+  }
+}
 </style>
 </head>
 
