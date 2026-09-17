@@ -759,6 +759,176 @@ footer strong{
   }
 
 }
+/* =========================
+   RESEARCH PROJECTS
+========================= */
+
+.projects-section{
+  padding:110px 0;
+  background:#f7faff;
+}
+
+.projects-header{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:55px;
+}
+
+.projects-header h2{
+  margin:14px 0 0;
+  color:var(--navy);
+  font-size:clamp(38px,4vw,58px);
+  line-height:1.08;
+  letter-spacing:-1.5px;
+}
+
+.projects-intro{
+  color:#66758a;
+  font-size:18px;
+  line-height:1.8;
+  margin:0;
+  max-width:620px;
+}
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.project-card{
+  position:relative;
+  overflow:hidden;
+  min-height:390px;
+  padding:42px;
+  border:1px solid #dce6f3;
+  border-radius:24px;
+  background:#fff;
+  transition:.25s ease;
+}
+
+.project-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 22px 55px rgba(18,61,115,.10);
+}
+
+.project-featured{
+  grid-column:span 2;
+  min-height:420px;
+  background:
+    radial-gradient(circle at 90% 15%,
+    rgba(15,181,235,.15),
+    transparent 28%),
+    linear-gradient(135deg,#ffffff 35%,#f3f8ff 100%);
+  border-color:#b9d7ff;
+}
+
+.project-featured::after{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  right:-55px;
+  bottom:-70px;
+  border:35px solid rgba(17,135,239,.07);
+  border-radius:50%;
+}
+
+.project-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:48px;
+}
+
+.project-number{
+  color:#a8b7ca;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.project-featured .project-number{
+  color:#2463eb;
+}
+
+.project-status{
+  padding:7px 12px;
+  border-radius:999px;
+  background:#edf5ff;
+  color:#1558c7;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.8px;
+}
+
+.project-category{
+  margin-bottom:14px;
+  color:#2463eb;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.project-card h3{
+  max-width:760px;
+  margin:0 0 18px;
+  color:var(--navy);
+  font-size:clamp(27px,2.5vw,38px);
+  line-height:1.15;
+}
+
+.project-card p{
+  max-width:780px;
+  margin:0;
+  color:#66758a;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.project-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:32px;
+}
+
+.project-tags span{
+  padding:8px 13px;
+  border-radius:999px;
+  background:#f0f5fb;
+  color:#12345b;
+  font-size:13px;
+  font-weight:700;
+}
+
+@media(max-width:800px){
+
+  .projects-section{
+    padding:75px 0;
+  }
+
+  .projects-header{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  .project-featured{
+    grid-column:span 1;
+  }
+
+  .project-card{
+    padding:30px;
+    min-height:auto;
+  }
+
+}
+  
 </style>
 </head>
 
@@ -855,6 +1025,167 @@ footer strong{
 
 </section>
 
+<!-- =========================
+     FEATURED PROJECTS
+========================= -->
+<section class="projects-section" id="projects">
+  <div class="container">
+
+    <div class="projects-header">
+      <div>
+        <div class="section-kicker"
+             data-en="RESEARCH PROJECTS"
+             data-zh="研究計畫"
+             data-ja="研究プロジェクト">
+          研究計畫
+        </div>
+
+        <h2 data-en="Research in Action."
+            data-zh="讓研究走向實際工程。"
+            data-ja="研究を実際の工学へ。">
+          讓研究走向實際工程。
+        </h2>
+      </div>
+
+      <p class="projects-intro"
+         data-en="We develop signal processing, physics-guided, and intelligent diagnostic methods for real-world machinery monitoring and predictive maintenance."
+         data-zh="我們結合訊號處理、物理導向方法與人工智慧，發展可應用於實際機械監測、故障診斷與預知維護的智慧方法。"
+         data-ja="信号処理、物理指向型手法、人工知能を統合し、実機の状態監視、故障診断、予知保全に応用可能な知的手法を開発しています。">
+        我們結合訊號處理、物理導向方法與人工智慧，發展可應用於實際機械監測、故障診斷與預知維護的智慧方法。
+      </p>
+    </div>
+
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 01 -->
+      <article class="project-card project-featured">
+
+        <div class="project-top">
+          <span class="project-number">01</span>
+          <span class="project-status"
+                data-en="ONGOING"
+                data-zh="進行中"
+                data-ja="進行中">
+            進行中
+          </span>
+        </div>
+
+        <div class="project-category"
+             data-en="PHYSICS-GUIDED SIGNAL PROCESSING"
+             data-zh="物理導向訊號處理"
+             data-ja="物理指向型信号処理">
+          物理導向訊號處理
+        </div>
+
+        <h3 data-en="Physics-Guided Beamforming for Machinery Diagnostics"
+            data-zh="物理導向波束成形於機械故障診斷"
+            data-ja="機械故障診断のための物理指向型ビームフォーミング">
+          物理導向波束成形於機械故障診斷
+        </h3>
+
+        <p data-en="Integrating physical response characteristics, multichannel sensing, and robust beamforming to enhance weak fault-related components under complex operating conditions."
+           data-zh="整合物理響應特性、多通道感測與強健波束成形，在複雜工況下增強微弱故障相關訊號成分。"
+           data-ja="物理応答特性、マルチチャネルセンシング、ロバストビームフォーミングを統合し、複雑な運転条件下で微弱な故障関連成分を強調します。">
+          整合物理響應特性、多通道感測與強健波束成形，在複雜工況下增強微弱故障相關訊號成分。
+        </p>
+
+        <div class="project-tags">
+          <span>RFRF</span>
+          <span>Beamforming</span>
+          <span>MVDR</span>
+          <span>Order Analysis</span>
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 02 -->
+      <article class="project-card">
+
+        <div class="project-top">
+          <span class="project-number">02</span>
+          <span class="project-status"
+                data-en="RESEARCH"
+                data-zh="研究中"
+                data-ja="研究中">
+            研究中
+          </span>
+        </div>
+
+        <div class="project-category"
+             data-en="MULTICHANNEL SIGNAL PROCESSING"
+             data-zh="多通道訊號處理"
+             data-ja="マルチチャネル信号処理">
+          多通道訊號處理
+        </div>
+
+        <h3 data-en="Multichannel Fault Signal Enhancement"
+            data-zh="多通道故障訊號增強與感測器融合"
+            data-ja="マルチチャネル故障信号強調とセンサフュージョン">
+          多通道故障訊號增強與感測器融合
+        </h3>
+
+        <p data-en="Developing multichannel fusion and spatial filtering strategies to improve fault feature visibility and diagnostic reliability."
+           data-zh="發展多通道融合與空間濾波策略，提升故障特徵可辨識度與智慧診斷可靠度。"
+           data-ja="マルチチャネル融合と空間フィルタリングにより、故障特徴の可視性と診断信頼性を向上させます。">
+          發展多通道融合與空間濾波策略，提升故障特徵可辨識度與智慧診斷可靠度。
+        </p>
+
+        <div class="project-tags">
+          <span>Sensor Fusion</span>
+          <span>DAS</span>
+          <span>Feature Enhancement</span>
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 03 -->
+      <article class="project-card">
+
+        <div class="project-top">
+          <span class="project-number">03</span>
+          <span class="project-status"
+                data-en="RESEARCH"
+                data-zh="研究中"
+                data-ja="研究中">
+            研究中
+          </span>
+        </div>
+
+        <div class="project-category"
+             data-en="MACHINERY INTELLIGENCE"
+             data-zh="智慧機械診斷"
+             data-ja="知的機械診断">
+          智慧機械診斷
+        </div>
+
+        <h3 data-en="Intelligent Harmonic Drive Diagnostics"
+            data-zh="諧波減速機智慧故障診斷"
+            data-ja="ハーモニックドライブの知的故障診断">
+          諧波減速機智慧故障診斷
+        </h3>
+
+        <p data-en="Investigating vibration, current, and multi-sensor information for intelligent condition monitoring of harmonic drives and precision transmission systems."
+           data-zh="結合振動、電流與多感測器資訊，研究諧波減速機與精密傳動系統之智慧狀態監測與故障診斷。"
+           data-ja="振動、電流、マルチセンサ情報を活用し、ハーモニックドライブおよび精密伝達機構の知的状態監視を研究します。">
+          結合振動、電流與多感測器資訊，研究諧波減速機與精密傳動系統之智慧狀態監測與故障診斷。
+        </p>
+
+        <div class="project-tags">
+          <span>Harmonic Drive</span>
+          <span>Vibration</span>
+          <span>AI</span>
+          <span>PHM</span>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+  
 <!-- RESEARCH AREAS -->
 <section class="research-section" id="research">
   <div class="container">
@@ -1276,7 +1607,7 @@ const translations = {
 
     "research.kicker": "研究領域",
     "research.title":
-      "從訊號分析<br>邁向工程智慧。",
+      "從訊號處理<br>邁向工程智慧。",
     "research.description":
       "本實驗室整合訊號處理、多感測器感測、物理導向方法與人工智慧，發展智慧機械監測與預知維護技術。",
 
@@ -1321,7 +1652,7 @@ const translations = {
 
     "research.kicker": "研究分野",
     "research.title":
-      "信号から<br>エンジニアリング・インテリジェンスへ。",
+      "信号処理から、工学的インテリジェンスへ。",
     "research.description":
       "信号処理、マルチセンサ計測、物理指向型手法、人工知能を統合し、機械のインテリジェントモニタリングと予知保全に関する研究を行っています。",
 
