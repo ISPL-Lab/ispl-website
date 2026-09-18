@@ -105,13 +105,38 @@ nav{
   color:var(--blue);
 }
 
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+
+.mobile-menu-button{
+  display:none;
+  width:42px;
+  height:42px;
+  padding:9px;
+  border:1px solid #dbe4ef;
+  border-radius:8px;
+  background:#fff;
+  cursor:pointer;
+}
+
+.mobile-menu-button span{
+  display:block;
+  height:2px;
+  margin:5px 0;
+  border-radius:2px;
+  background:var(--navy);
+}
+
 /* =========================
    LANGUAGE SWITCHER
    ========================= */
 
 .language-switcher{
   position:relative;
-  margin-left:12px;
 }
 
 .language-button{
@@ -1386,8 +1411,61 @@ footer strong{
 
 @media (max-width: 900px) {
 
-.menu{
+  nav{
+    height:70px;
+    position:relative;
+  }
+
+  .brand-symbol{
+    width:54px;
+    height:54px;
+  }
+
+  .brand-text strong{
+    font-size:21px;
+  }
+
+  .brand-text span{
     display:none;
+  }
+
+  .mobile-menu-button{
+    display:block;
+  }
+
+  .menu{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    z-index:900;
+    padding:12px;
+    gap:0;
+    flex-direction:column;
+    background:#fff;
+    border:1px solid #dbe4ef;
+    border-radius:0 0 14px 14px;
+    box-shadow:0 16px 30px rgba(9,49,101,.12);
+  }
+
+  .menu.active{
+    display:flex;
+  }
+
+  .menu a{
+    width:100%;
+    padding:11px 12px;
+    border-radius:8px;
+    font-size:14px;
+  }
+
+  .menu a:hover{
+    background:#f1f6fc;
+  }
+
+  .language-button{
+    min-height:42px;
   }
 
   .hero-grid{
@@ -1533,7 +1611,7 @@ footer strong{
     </div>
 </a>
 
-<div class="menu">
+<div class="menu" id="mainMenu">
   <a href="#projects" data-i18n="nav.projects">Projects</a>
   <a href="#people" data-i18n="nav.people">People</a>
   <a href="#research" data-i18n="nav.research">Research</a>
@@ -1541,9 +1619,11 @@ footer strong{
   <a href="#teaching" data-i18n="nav.teaching">Teaching</a>
   <a href="#code" data-i18n="nav.resources">Resources</a>
   <a href="#about" data-i18n="nav.about">About</a>
+</div>
 
+<div class="nav-actions">
   <div class="language-switcher">
-    <button class="language-button" id="languageButton">
+    <button class="language-button" id="languageButton" aria-label="Change language" aria-expanded="false">
       <span id="currentLanguage">EN</span>
       <span class="language-arrow">▾</span>
     </button>
@@ -1554,6 +1634,10 @@ footer strong{
       <button data-lang="ja">日本語</button>
     </div>
   </div>
+
+  <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation" aria-expanded="false" aria-controls="mainMenu">
+    <span></span><span></span><span></span>
+  </button>
 </div>
 
     </nav>
@@ -3210,11 +3294,17 @@ const currentLanguage = document.getElementById("currentLanguage");
 
 languageButton.addEventListener("click", function(event){
   event.stopPropagation();
-  languageMenu.classList.toggle("active");
+  const isOpen = languageMenu.classList.toggle("active");
+  languageButton.setAttribute("aria-expanded", isOpen);
 });
 
 document.addEventListener("click", function(){
   languageMenu.classList.remove("active");
+  languageButton.setAttribute("aria-expanded", "false");
+  if (window.innerWidth <= 900) {
+    mainMenu?.classList.remove("active");
+    mobileMenuButton?.setAttribute("aria-expanded", "false");
+  }
 });
 
 document.querySelectorAll(".language-menu button").forEach(button => {
@@ -3228,6 +3318,22 @@ document.querySelectorAll(".language-menu button").forEach(button => {
     languageMenu.classList.remove("active");
   });
 
+});
+
+const mobileMenuButton = document.getElementById("mobileMenuButton");
+const mainMenu = document.getElementById("mainMenu");
+
+mobileMenuButton.addEventListener("click", function(event){
+  event.stopPropagation();
+  const isOpen = mainMenu.classList.toggle("active");
+  mobileMenuButton.setAttribute("aria-expanded", isOpen);
+});
+
+mainMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(){
+    mainMenu.classList.remove("active");
+    mobileMenuButton.setAttribute("aria-expanded", "false");
+  });
 });
 
 const savedLanguage =
