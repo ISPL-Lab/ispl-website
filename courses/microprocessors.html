@@ -1,1 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>微處理機 | ISPL Teaching</title>
+
+  <style>
+    :root {
+      --navy: #082f63;
+      --blue: #1769ff;
+      --cyan: #00a8ff;
+      --text: #53677f;
+      --light: #f5f9fe;
+      --line: #dce7f3;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+   .brand-logo {
+  width: 72px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+    .brand-name {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: #65778e;
+      font-size: 12px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .back-link {
+      color: #34465b;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--blue);
+    }
+
+
+    /* LANGUAGE */
+
+    .language-selector {
+      position: relative;
+    }
+
+    .language-button {
+      padding: 11px 15px;
+      border: 1px solid #d4e0ee;
+      border-radius: 11px;
+      background: white;
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .language-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      display: none;
+      width: 150px;
+      padding: 7px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(8,47,99,.12);
+    }
+
+    .language-menu.active {
+      display: block;
+    }
+
+    .language-menu button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .language-menu button:hover {
+      background: var(--light);
+    }
+
+
+    /* =========================
+       COURSE HERO
+    ========================= */
+
+    .course-hero {
+      padding: 90px 0 75px;
+      background:
+        radial-gradient(circle at 82% 25%, rgba(0,168,255,.12), transparent 27%),
+        linear-gradient(180deg, #f5f9ff 0%, #ffffff 100%);
+    }
+
+    .breadcrumb {
+      margin-bottom: 35px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .course-category {
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .course-hero h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .english-title {
+      margin-top: 14px;
+      color: #536b87;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .course-description {
+      max-width: 760px;
+      margin: 32px 0 0;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .course-meta span {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       MATERIALS
+    ========================= */
+
+    .materials {
+      padding: 90px 0 120px;
+    }
+
+    .section-kicker {
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .materials h2 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -1px;
+    }
+
+    .materials-intro {
+      max-width: 720px;
+      margin: 20px 0 50px;
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .material-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .material-card {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 30px 32px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+      transition: .2s ease;
+    }
+
+    .material-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(8,47,99,.08);
+      border-color: #bfd5ef;
+    }
+
+    .material-number {
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .material-type {
+      margin-bottom: 7px;
+      color: #66809e;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
+
+    .material-info h3 {
+      margin: 0 0 7px;
+      font-size: 22px;
+    }
+
+    .material-info p {
+      margin: 0;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .material-en-title {
+  margin: -2px 0 10px;
+  color: #8190a3;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.material-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.material-meta span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1f6fc;
+  color: #55708f;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.download-primary {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.download-primary:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+    .download-area {
+      display: flex;
+      gap: 8px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      min-width: 65px;
+      padding: 10px 13px;
+      border: 1px solid #cddced;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #f7faff;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      color: white;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .coming-soon {
+      color: #8291a3;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 40px 0;
+      background: #062b59;
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      .container {
+        width: min(100% - 30px, 1180px);
+      }
+
+      .brand-subtitle {
+        display: none;
+      }
+
+      .back-link {
+        display: none;
+      }
+
+      .course-hero {
+        padding: 65px 0;
+      }
+
+      .material-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .download-area {
+        margin-top: 5px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <a href="../index.html" class="brand">
+
+      <img src="../assets/images/ispl-symbol.png"
+     alt="ISPL Logo"
+     class="brand-logo">
+
+      <div>
+        <div class="brand-name">ISPL</div>
+        <div class="brand-subtitle">
+          Intelligent Signal Processing Laboratory
+        </div>
+      </div>
+
+    </a>
+
+
+    <div class="nav-right">
+
+      <a href="../index.html#teaching"
+         class="back-link"
+         data-en="← Teaching"
+         data-zh="← 返回教學資源"
+         data-ja="← 教育リソース">
+        ← 返回教學資源
+      </a>
+
+
+      <div class="language-selector">
+
+        <button class="language-button"
+                id="languageButton">
+          <span id="currentLanguage">繁中</span>⌄
+        </button>
+
+        <div class="language-menu"
+             id="languageMenu">
+
+          <button data-lang="zh-TW">繁體中文</button>
+          <button data-lang="en">English</button>
+          <button data-lang="ja">日本語</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <!-- =========================
+       COURSE HERO
+  ========================== -->
+
+  <section class="course-hero">
+
+  <div class="container">
+
+    <div class="breadcrumb"
+         data-en="ISPL TEACHING / MICROPROCESSORS"
+         data-zh="ISPL 教學資源 / 微處理機"
+         data-ja="ISPL 教育リソース / マイクロプロセッサ">
+      ISPL 教學資源 / 微處理機
+    </div>
+
+    <div class="course-category"
+         data-en="COMPUTER ENGINEERING"
+         data-zh="電腦工程"
+         data-ja="コンピュータ工学">
+      電腦工程
+    </div>
+
+    <h1 data-en="Microprocessors"
+        data-zh="微處理機"
+        data-ja="マイクロプロセッサ">
+      微處理機
+    </h1>
+
+    <div class="english-title">
+      Microprocessors
+    </div>
+
+    <p class="course-description"
+       data-en="Explore the evolution of processors, CPU architecture, instruction execution, buses, memory, and the fundamental organization of microprocessor systems."
+       data-zh="從處理器發展、CPU 架構、指令執行、匯流排與記憶體，建立微處理機系統的核心觀念與系統架構基礎。"
+       data-ja="プロセッサの発展、CPUアーキテクチャ、命令実行、バス、メモリを通して、マイクロプロセッサシステムの基礎を学びます。">
+      從處理器發展、CPU 架構、指令執行、匯流排與記憶體，建立微處理機系統的核心觀念與系統架構基礎。
+    </p>
+
+    <div class="course-meta">
+      <span>CPU Architecture</span>
+      <span>Instruction Cycle</span>
+      <span>Bus System</span>
+      <span>AI-Assisted Learning</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- =========================
+       MATERIALS
+  ========================== -->
+
+  <section class="materials">
+
+    <div class="container">
+
+      <div class="section-kicker"
+           data-en="COURSE MATERIALS"
+           data-zh="課程教材"
+           data-ja="コース教材">
+        課程教材
+      </div>
+
+      <h2 data-en="Learning Materials"
+          data-zh="學習與實習教材"
+          data-ja="学習・実験教材">
+        學習與實習教材
+      </h2>
+
+      <p class="materials-intro"
+   data-en="Course materials are organized by chapter. Lecture slides and supplementary learning resources will be released progressively during the semester."
+   data-zh="教材依課程章節整理，課堂投影片與補充學習資源將配合授課進度陸續更新。"
+   data-ja="教材は章ごとに整理し、講義スライドと補足学習資料を授業の進行に合わせて順次公開します。">
+  教材依課程章節整理，課堂投影片與補充學習資源將配合授課進度陸續更新。
+</p>
+
+
+      <div class="material-list">
+
+  <article class="material-card">
+
+    <div class="material-number">01</div>
+
+    <div class="material-info">
+
+      <div class="material-type">
+        COURSE MATERIAL
+      </div>
+
+      <h3 data-en="Chapter 1 · Introduction to Microprocessors"
+          data-zh="第一章｜微處理機概論"
+          data-ja="第1章｜マイクロプロセッサ概論">
+        第一章｜微處理機概論
+      </h3>
+
+      <div class="material-en-title"
+           data-secondary-en=""
+           data-secondary-zh="Chapter 1 · Introduction to Microprocessors"
+           data-secondary-ja="Chapter 1 · Introduction to Microprocessors">
+        Chapter 1 · Introduction to Microprocessors
+      </div>
+
+      <p data-en="From the evolution of computers and processors to CISC and RISC, CPU organization, registers, ALU, buses, instruction cycles, and pipelining."
+         data-zh="從電腦與處理器發展、CISC 與 RISC，到 CPU 核心組成、暫存器、ALU、匯流排、指令週期與 Pipeline，建立微處理機系統的基礎架構觀念。"
+         data-ja="コンピュータとプロセッサの発展、CISCとRISC、CPU構成、レジスタ、ALU、バス、命令サイクル、パイプラインを学びます。">
+        從電腦與處理器發展、CISC 與 RISC，到 CPU 核心組成、暫存器、ALU、匯流排、指令週期與 Pipeline，建立微處理機系統的基礎架構觀念。
+      </p>
+
+      <div class="material-meta">
+
+        <span data-en="Course Slides"
+              data-zh="課程投影片"
+              data-ja="講義スライド">
+          課程投影片
+        </span>
+
+        <span>PDF</span>
+        <span>2026 Fall</span>
+
+      </div>
+
+    </div>
+
+    <div class="download-area">
+
+      <a href="../teaching-materials/microprocessors/chapter-01-introduction.pdf"
+         target="_blank"
+         rel="noopener"
+         class="download-btn"
+         data-en="View PDF"
+         data-zh="閱讀 PDF"
+         data-ja="PDFを見る">
+        閱讀 PDF
+      </a>
+
+      <a href="../teaching-materials/microprocessors/chapter-01-introduction.pdf"
+         download
+         class="download-btn download-primary"
+         data-en="↓ Download PDF"
+         data-zh="↓ 下載 PDF"
+         data-ja="↓ PDFをダウンロード">
+        ↓ 下載 PDF
+      </a>
+
+    </div>
+
+  </article>
+
+</div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container">
+    © 2026 Intelligent Signal Processing Laboratory · ISPL
+  </div>
+</footer>
+
+
+<script>
+
+  const languageButton =
+    document.getElementById("languageButton");
+
+  const languageMenu =
+    document.getElementById("languageMenu");
+
+  const currentLanguage =
+    document.getElementById("currentLanguage");
+
+
+  function setLanguage(lang) {
+
+    let dataKey = "zh";
+
+    if (lang === "en") {
+      dataKey = "en";
+    }
+
+    if (lang === "ja") {
+      dataKey = "ja";
+    }
+
+    document.querySelectorAll("[data-" + dataKey + "]")
+      .forEach(element => {
+
+        const text =
+          element.getAttribute("data-" + dataKey);
+
+        if (text) {
+          element.innerHTML = text;
+        }
+
+      });
+
+    document.querySelectorAll("[data-" + dataKey + "]")
+  .forEach(element => {
+
+    const text =
+      element.getAttribute("data-" + dataKey);
+
+    if (text) {
+      element.innerHTML = text;
+    }
+
+  });
+
+
+/* Secondary English title */
+document.querySelectorAll(".material-en-title").forEach(element => {
+
+  let secondaryText = "";
+
+  if (lang === "zh-TW") {
+    secondaryText = element.dataset.secondaryZh || "";
+  }
+
+  if (lang === "en") {
+    secondaryText = element.dataset.secondaryEn || "";
+  }
+
+  if (lang === "ja") {
+    secondaryText = element.dataset.secondaryJa || "";
+  }
+
+  element.textContent = secondaryText;
+
+  if (secondaryText === "") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "block";
+  }
+
+});
+
+if (lang === "zh-TW") {
+  document.documentElement.lang = "zh-Hant";
+  currentLanguage.textContent = "繁中";
+}
+
+
+    if (lang === "zh-TW") {
+      document.documentElement.lang = "zh-Hant";
+      currentLanguage.textContent = "繁中";
+    }
+
+    if (lang === "en") {
+      document.documentElement.lang = "en";
+      currentLanguage.textContent = "EN";
+    }
+
+    if (lang === "ja") {
+      document.documentElement.lang = "ja";
+      currentLanguage.textContent = "JP";
+    }
+
+    localStorage.setItem("ispl-language", lang);
+
+  }
+
+
+  languageButton.addEventListener("click", function(event) {
+    event.stopPropagation();
+    languageMenu.classList.toggle("active");
+  });
+
+
+  document.addEventListener("click", function() {
+    languageMenu.classList.remove("active");
+  });
+
+
+  document.querySelectorAll(".language-menu button")
+    .forEach(button => {
+
+      button.addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        setLanguage(this.dataset.lang);
+
+        languageMenu.classList.remove("active");
+
+      });
+
+    });
+
+
+  const savedLanguage =
+    localStorage.getItem("ispl-language") || "zh-TW";
+
+  setLanguage(savedLanguage);
+
+</script>
+
+</body>
+</html>
