@@ -1341,6 +1341,208 @@ footer strong{
   font-size: 12px;
   font-weight: 700;
 }
+/* =========================================
+   ISPL STUDENT RESEARCH TEAM
+========================================= */
+
+.core-team-section,
+.capstone-section {
+  margin-top: 48px;
+  padding: 46px 48px;
+  background: #ffffff;
+  border: 1px solid #dce7f3;
+  border-radius: 26px;
+}
+
+.capstone-section {
+  margin-top: 24px;
+}
+
+.team-section-heading {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.team-section-content h3 {
+  margin: 8px 0 12px;
+  color: #062f67;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.team-section-content p {
+  max-width: 850px;
+  margin: 0;
+  color: #657991;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* ---------- Core Students ---------- */
+
+.core-student-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.core-student-card {
+  overflow: hidden;
+  background: #f8fbff;
+  border: 1px solid #dce7f3;
+  border-radius: 20px;
+}
+
+.student-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.student-card-content {
+  padding: 24px;
+}
+
+.student-card-content h4 {
+  margin: 0 0 5px;
+  color: #062f67;
+  font-size: 21px;
+}
+
+.student-role {
+  margin-bottom: 18px;
+  color: #1769ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .8px;
+}
+
+.student-info-label {
+  margin-top: 16px;
+  margin-bottom: 6px;
+  color: #6c819a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.student-info {
+  color: #344b67;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* ---------- Capstone Projects ---------- */
+
+.capstone-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.capstone-card {
+  padding: 30px;
+  background: #f8fbff;
+  border: 1px solid #dce7f3;
+  border-radius: 20px;
+}
+
+.capstone-year {
+  margin-bottom: 16px;
+  color: #1769ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.capstone-card h4 {
+  margin: 0 0 7px;
+  color: #062f67;
+  font-size: 21px;
+  line-height: 1.45;
+}
+
+.capstone-en-title {
+  margin-bottom: 18px;
+  color: #8090a3;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.capstone-students {
+  margin-top: 20px;
+  color: #344b67;
+  font-size: 13px;
+}
+
+.capstone-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.capstone-tags span {
+  padding: 6px 10px;
+  background: #edf4fc;
+  border-radius: 999px;
+  color: #526d8d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* ---------- Awards ---------- */
+
+.capstone-awards {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #dce7f3;
+}
+
+.awards-label {
+  margin-bottom: 7px;
+  color: #1769ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.award-item {
+  color: #344b67;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+
+  .core-student-grid,
+  .capstone-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-section-heading {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .core-team-section,
+  .capstone-section {
+    padding: 32px 26px;
+  }
+
+}
 </style>
 </head>
 
@@ -1680,46 +1882,105 @@ footer strong{
 
   </div>
 
-  <!-- 03 STUDENT RESEARCHERS -->
-  <div class="student-team-card">
+  <!-- =========================
+     02 CORE STUDENT RESEARCH TEAM
+========================= -->
 
-    <div class="student-team-number">03</div>
+<div class="core-team-section">
 
-    <div class="student-team-content">
+  <div class="team-section-heading">
+
+    <div class="student-team-number">02</div>
+
+    <div class="team-section-content">
 
       <div class="member-label"
-           data-en="STUDENT RESEARCHERS"
-           data-zh="學生研究團隊"
-           data-ja="学生研究チーム">
-        學生研究團隊
+           data-en="CORE STUDENT RESEARCH TEAM"
+           data-zh="常駐研究團隊"
+           data-ja="コア学生研究チーム">
+        常駐研究團隊
       </div>
 
-      <h3
-          data-en="Student Researchers"
-          data-zh="學生研究團隊"
-          data-ja="学生研究チーム">
-        學生研究團隊
+      <h3 data-en="Core Student Research Team"
+          data-zh="常駐研究團隊"
+          data-ja="コア学生研究チーム">
+        常駐研究團隊
       </h3>
 
-      <p
-         data-en="Undergraduate researchers explore signal processing, intelligent diagnostics, sensor fusion, artificial intelligence, and engineering applications through research projects and hands-on experimentation."
-         data-zh="大專生研究成員透過專題研究與實作，探索訊號處理、智慧診斷、感測器融合、人工智慧及其工程應用。"
-         data-ja="学部学生は研究プロジェクトと実践を通して、信号処理、知的診断、センサフュージョン、人工知能、および工学応用に取り組みます。">
-        大專生研究成員透過專題研究與實作，探索訊號處理、智慧診斷、感測器融合、人工智慧及其工程應用。
+      <p data-en="Core student researchers participate in ISPL research from joining the laboratory through graduation, contributing to research projects, NSTC projects, and undergraduate research programs."
+         data-zh="常駐研究成員自加入 ISPL 起持續參與實驗室研究至畢業，投入實驗室研究計畫、國科會計畫與大專學生研究計畫等研究工作。"
+         data-ja="コア学生研究メンバーは研究室への参加から卒業まで継続して研究活動に参加し、研究プロジェクトや学部生研究プログラムに取り組みます。">
+        常駐研究成員自加入 ISPL 起持續參與實驗室研究至畢業，投入實驗室研究計畫、國科會計畫與大專學生研究計畫等研究工作。
       </p>
-
-      <div class="member-tags">
-        <span>Signal Processing</span>
-        <span>Sensor Fusion</span>
-        <span>AI</span>
-        <span>Machine Learning</span>
-        <span>Embedded Systems</span>
-      </div>
 
     </div>
 
   </div>
-  <!-- END 03 STUDENT RESEARCHERS -->
+
+
+  <!-- CORE STUDENT CARDS -->
+  <div class="core-student-grid">
+
+    <!--
+      未來每位常駐學生放一張人物卡。
+      可使用 Q 版人物或真實照片。
+    -->
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     03 CAPSTONE PROJECTS
+========================= -->
+
+<div class="capstone-section">
+
+  <div class="team-section-heading">
+
+    <div class="student-team-number">03</div>
+
+    <div class="team-section-content">
+
+      <div class="member-label"
+           data-en="CAPSTONE PROJECTS"
+           data-zh="專題研究"
+           data-ja="卒業研究プロジェクト">
+        專題研究
+      </div>
+
+      <h3 data-en="Capstone Projects"
+          data-zh="專題研究"
+          data-ja="卒業研究プロジェクト">
+        專題研究
+      </h3>
+
+      <p data-en="Student capstone projects address practical engineering problems through signal processing, artificial intelligence, embedded systems, networking, and related technologies."
+         data-zh="專題研究以實際工程問題為核心，結合訊號處理、人工智慧、嵌入式系統、網路技術與相關領域進行研究與實作。"
+         data-ja="卒業研究では、信号処理、人工知能、組込みシステム、ネットワーク技術などを活用し、実践的な工学課題に取り組みます。">
+        專題研究以實際工程問題為核心，結合訊號處理、人工智慧、嵌入式系統、網路技術與相關領域進行研究與實作。
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- CAPSTONE PROJECT CARDS -->
+  <div class="capstone-grid">
+
+    <!--
+      未來一個專題一張卡片。
+      不使用學生照片。
+      Awards 有獲獎紀錄時才加入。
+    -->
+
+  </div>
+
+</div>
+
+<!-- END STUDENT RESEARCH TEAM -->
 
 </div>
 
