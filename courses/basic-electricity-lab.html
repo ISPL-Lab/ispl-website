@@ -301,6 +301,40 @@
       line-height: 1.6;
     }
 
+    .material-en-title {
+  margin: -2px 0 10px;
+  color: #8190a3;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.material-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.material-meta span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1f6fc;
+  color: #55708f;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.download-primary {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.download-primary:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
     .download-area {
       display: flex;
       gap: 8px;
@@ -526,48 +560,67 @@
         <!-- 01 -->
         <article class="material-card">
 
-          <div class="material-number">01</div>
+  <div class="material-number">01</div>
 
-          <div class="material-info">
+  <div class="material-info">
 
-            <div class="material-type">AI-ASSISTED MATERIAL</div>
+    <div class="material-type">
+      AI-ASSISTED MATERIAL
+    </div>
 
-            <h3 data-en="Electronic Component Identification"
-                data-zh="電子零件識別"
-                data-ja="電子部品の識別">
-              電子零件識別
-            </h3>
+    <h3 data-en="Electronic Component Identification"
+        data-zh="電子零件識別"
+        data-ja="電子部品の識別">
+      電子零件識別
+    </h3>
 
-            <p data-en="Resistors, capacitors, inductors, transformers, diodes, and transistors."
-               data-zh="電阻、電容、電感、變壓器、二極體與電晶體之實體、符號與用途。"
-               data-ja="抵抗器、コンデンサ、インダクタ、変圧器、ダイオード、トランジスタを学びます。">
-              電阻、電容、電感、變壓器、二極體與電晶體之實體、符號與用途。
-            </p>
+    <div class="material-en-title">
+      Electronic Component Identification
+    </div>
 
-          </div>
+    <p data-en="Physical components, circuit symbols, and applications of resistors, capacitors, inductors, transformers, diodes, and transistors."
+       data-zh="電阻、電容、電感、變壓器、二極體與電晶體之實體、電路符號與主要用途。"
+       data-ja="抵抗器、コンデンサ、インダクタ、変圧器、ダイオード、トランジスタの実物、回路記号、用途を学びます。">
+      電阻、電容、電感、變壓器、二極體與電晶體之實體、電路符號與主要用途。
+    </p>
 
-          <div class="download-area">
-            <a href="../teaching-materials/basic-electricity-lab/component-identification.pdf"
-               target="_blank"
-               rel="noopener"
-               class="download-btn"
-               data-en="View PDF"
-               data-zh="閱讀 PDF"
-               data-ja="PDFを見る">
-              閱讀 PDF
-            </a>        
-            <a href="../teaching-materials/basic-electricity-lab/component-identification.pdf"
-               download
-               class="download-btn"
-               data-en="Download"
-               data-zh="下載"
-               data-ja="ダウンロード">
-              下載
-            </a>
-        </div>
+    <div class="material-meta">
+      <span data-en="AI-Assisted Material"
+            data-zh="AI 輔助教材"
+            data-ja="AI支援教材">
+        AI 輔助教材
+      </span>
 
-        </article>
+      <span>PDF</span>
+      <span>2026 Fall</span>
+    </div>
 
+  </div>
+
+  <div class="download-area">
+
+    <a href="../teaching-materials/basic-electricity-lab/component-identification.pdf"
+       target="_blank"
+       rel="noopener"
+       class="download-btn"
+       data-en="View PDF"
+       data-zh="閱讀 PDF"
+       data-ja="PDFを見る">
+      閱讀 PDF
+    </a>
+
+    <a href="../teaching-materials/basic-electricity-lab/component-identification.pdf"
+       download
+       class="download-btn download-primary"
+       data-en="↓ Download PDF"
+       data-zh="↓ 下載 PDF"
+       data-ja="↓ PDFをダウンロード">
+      ↓ 下載 PDF
+    </a>
+
+  </div>
+
+</article>
 
         <!-- 02 -->
         <article class="material-card">
