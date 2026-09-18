@@ -1391,52 +1391,77 @@ footer strong{
 }
 
 .core-student-card {
-  overflow: hidden;
+  padding: 26px;
   background: #f8fbff;
   border: 1px solid #dce7f3;
   border-radius: 20px;
 }
 
-.student-photo {
-  width: 100%;
-  aspect-ratio: 4 / 3;
+.student-profile-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.student-avatar {
+  width: 104px;
+  height: 104px;
+  flex: 0 0 104px;
   object-fit: cover;
-  display: block;
+  border-radius: 50%;
+  background: #eef4fa;
+  border: 1px solid #dce7f3;
 }
 
-.student-card-content {
-  padding: 24px;
-}
-
-.student-card-content h4 {
-  margin: 0 0 5px;
+.student-identity h4 {
+  margin: 0 0 7px;
   color: #062f67;
-  font-size: 21px;
+  font-size: 22px;
+  line-height: 1.3;
 }
 
 .student-role {
-  margin-bottom: 18px;
   color: #1769ff;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: .8px;
 }
 
+.student-detail {
+  padding-top: 4px;
+}
+
 .student-info-label {
-  margin-top: 16px;
-  margin-bottom: 6px;
-  color: #6c819a;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #1769ff;
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1.3px;
+  letter-spacing: 1.2px;
 }
 
 .student-info {
-  color: #344b67;
+  color: #526a86;
   font-size: 13px;
   line-height: 1.65;
 }
 
+.student-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.student-tags span {
+  padding: 6px 10px;
+  background: #eaf3ff;
+  border-radius: 999px;
+  color: #1769ff;
+  font-size: 10px;
+  font-weight: 700;
+}
 
 /* ---------- Capstone Projects ---------- */
 
@@ -1921,12 +1946,158 @@ footer strong{
   <!-- CORE STUDENT CARDS -->
   <div class="core-student-grid">
 
-    <!--
-      未來每位常駐學生放一張人物卡。
-      可使用 Q 版人物或真實照片。
-    -->
+  <!-- CORE STUDENT 01 -->
+  <article class="core-student-card">
 
-  </div>
+    <div class="student-profile-top">
+
+      <img src="assets/images/team/students/student-male-default.png"
+           alt="Student profile"
+           class="student-avatar">
+
+      <div class="student-identity">
+
+        <h4 data-en="Student Name"
+            data-zh="學生姓名"
+            data-ja="学生氏名">
+          學生姓名
+        </h4>
+
+        <div class="student-role">
+          UNDERGRADUATE RESEARCHER
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="student-detail">
+
+      <div class="student-info-label"
+           data-en="RESEARCH INTERESTS"
+           data-zh="研究興趣"
+           data-ja="研究分野">
+        研究興趣
+      </div>
+
+      <div class="student-info">
+        Signal Processing · Fault Diagnosis · Machine Learning
+      </div>
+
+
+      <div class="student-info-label"
+           data-en="RESEARCH INVOLVEMENT"
+           data-zh="參與計畫"
+           data-ja="研究プロジェクト">
+        參與計畫
+      </div>
+
+      <div class="student-info"
+           data-en="ISPL Research Project · NSTC Research Project"
+           data-zh="ISPL 實驗室研究計畫 · 國科會研究計畫"
+           data-ja="ISPL研究プロジェクト · NSTC研究プロジェクト">
+        ISPL 實驗室研究計畫 · 國科會研究計畫
+      </div>
+
+
+      <div class="student-info-label"
+           data-en="JOINED ISPL"
+           data-zh="加入時間"
+           data-ja="参加年度">
+        加入時間
+      </div>
+
+      <div class="student-info">
+        2026 – Present
+      </div>
+
+    </div>
+
+    <div class="student-tags">
+      <span>Signal Processing</span>
+      <span>Fault Diagnosis</span>
+      <span>Machine Learning</span>
+    </div>
+
+  </article>
+
+
+  <!-- CORE STUDENT 02 -->
+  <article class="core-student-card">
+
+    <div class="student-profile-top">
+
+      <img src="assets/images/team/students/student-female-default.png"
+           alt="Student profile"
+           class="student-avatar">
+
+      <div class="student-identity">
+
+        <h4 data-en="Student Name"
+            data-zh="學生姓名"
+            data-ja="学生氏名">
+          學生姓名
+        </h4>
+
+        <div class="student-role">
+          UNDERGRADUATE RESEARCHER
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="student-detail">
+
+      <div class="student-info-label"
+           data-en="RESEARCH INTERESTS"
+           data-zh="研究興趣"
+           data-ja="研究分野">
+        研究興趣
+      </div>
+
+      <div class="student-info">
+        Sensor Fusion · Artificial Intelligence · Rotating Machinery
+      </div>
+
+
+      <div class="student-info-label"
+           data-en="RESEARCH INVOLVEMENT"
+           data-zh="參與計畫"
+           data-ja="研究プロジェクト">
+        參與計畫
+      </div>
+
+      <div class="student-info"
+           data-en="ISPL Research Project · Undergraduate Research Program"
+           data-zh="ISPL 實驗室研究計畫 · 大專學生研究計畫"
+           data-ja="ISPL研究プロジェクト · 学部生研究プログラム">
+        ISPL 實驗室研究計畫 · 大專學生研究計畫
+      </div>
+
+
+      <div class="student-info-label"
+           data-en="JOINED ISPL"
+           data-zh="加入時間"
+           data-ja="参加年度">
+        加入時間
+      </div>
+
+      <div class="student-info">
+        2026 – Present
+      </div>
+
+    </div>
+
+    <div class="student-tags">
+      <span>Sensor Fusion</span>
+      <span>AI</span>
+      <span>Rotating Machinery</span>
+    </div>
+
+  </article>
+
+</div>
 
 </div>
 
