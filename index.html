@@ -1353,7 +1353,13 @@ footer strong{
   border: 1px solid #dce7f3;
   border-radius: 26px;
 }
-
+.capstone-badges {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 .capstone-section {
   margin-top: 24px;
 }
@@ -1604,10 +1610,11 @@ footer strong{
 
 .capstone-meta-value {
   color: #173b66;
-
   font-size: 13px;
   font-weight: 650;
-  line-height: 1.5;
+  ord-break: keep-all;
+  overflow-wrap: normal;
+  line-height: 1.65;
 }
 
 
@@ -1727,7 +1734,9 @@ footer strong{
   color: #173b66;
   font-size: 13px;
   font-weight: 650;
-  line-height: 1.5;
+ ord-break: keep-all;
+  overflow-wrap: normal;
+  line-height: 1.65;
 }
 
 @media (max-width: 700px) {
@@ -2434,6 +2443,12 @@ footer strong{
         <div class="capstone-card-top">
           <div class="capstone-project-number">02</div>
 
+          <div class="capstone-status"
+               data-en="ONGOING"
+               data-zh="進行中"
+               data-ja="進行中">
+            進行中
+          </div>
           <div class="capstone-supervision co-supervised"
                data-en="CO-SUPERVISED"
                data-zh="共同指導"
