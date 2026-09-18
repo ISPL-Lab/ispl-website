@@ -1503,6 +1503,164 @@ footer strong{
   }
 
 }
+
+
+/* =========================================
+   RESEARCH OUTPUTS
+========================================= */
+.outputs-section {
+  padding: 95px 0;
+  background: #f7fbff;
+}
+
+.outputs-header {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 42px;
+  align-items: end;
+  margin-bottom: 42px;
+}
+
+.outputs-header h2 {
+  margin: 8px 0 0;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1.03;
+  letter-spacing: -.04em;
+  color: #071a33;
+}
+
+.outputs-intro {
+  margin: 0;
+  color: #52647a;
+  line-height: 1.8;
+  max-width: 620px;
+}
+
+.outputs-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.output-stat {
+  background: #fff;
+  border: 1px solid #dce8f3;
+  border-radius: 20px;
+  padding: 22px 24px;
+  box-shadow: 0 12px 30px rgba(10, 35, 65, .05);
+}
+
+.output-stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+  color: #071a33;
+}
+
+.output-stat-label {
+  margin-top: 9px;
+  color: #177fa6;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.output-group {
+  margin-top: 26px;
+  background: #fff;
+  border: 1px solid #dce8f3;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.output-group summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  background: #fff;
+}
+
+.output-group summary::-webkit-details-marker { display: none; }
+.output-group summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 26px;
+  color: #177fa6;
+}
+.output-group[open] summary::after { content: "−"; }
+
+.output-group-index {
+  color: #00a9e8;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.output-group-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #071a33;
+}
+
+.output-group-count {
+  color: #718197;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.output-list {
+  border-top: 1px solid #e4edf5;
+  padding: 4px 26px 12px;
+}
+
+.output-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid #e8eff5;
+}
+.output-item:last-child { border-bottom: 0; }
+
+.output-year {
+  font-weight: 800;
+  color: #00a9e8;
+  font-variant-numeric: tabular-nums;
+}
+
+.output-title {
+  margin: 0 0 7px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #071a33;
+}
+
+.output-authors,
+.output-source,
+.output-note {
+  margin: 4px 0 0;
+  color: #5d6e82;
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.output-authors strong { color: #071a33; }
+.output-note { color: #177fa6; }
+
+@media (max-width: 800px) {
+  .outputs-header { grid-template-columns: 1fr; gap: 18px; }
+  .outputs-stats { grid-template-columns: 1fr; }
+  .output-item { grid-template-columns: 1fr; gap: 7px; }
+  .output-group summary { padding: 19px 18px; gap: 12px; }
+  .output-list { padding-left: 18px; padding-right: 18px; }
+  .output-group-count { display: none; }
+}
+
 </style>
 </head>
 
@@ -2575,6 +2733,85 @@ footer strong{
   </div>
 </section>
 
+
+
+<!-- =========================
+     RESEARCH OUTPUTS
+========================= -->
+<section id="publications" class="outputs-section">
+  <div class="container">
+    <div class="outputs-header">
+      <div>
+        <div class="section-kicker"
+             data-en="RESEARCH OUTPUTS"
+             data-zh="研究成果"
+             data-ja="研究成果">研究成果</div>
+        <h2 data-en="Research that becomes visible impact."
+            data-zh="從研究走向可驗證的成果。"
+            data-ja="研究を、検証可能な成果へ。">從研究走向可驗證的成果。</h2>
+      </div>
+      <p class="outputs-intro"
+         data-en="Peer-reviewed journal articles, conference papers, and granted utility model patents produced through our research activities."
+         data-zh="彙整研究工作所產出的期刊論文、研討會論文與已取得之新型專利。"
+         data-ja="研究活動から生まれた学術論文、国際・国内会議論文、および取得済み実用新案を掲載しています。">
+        彙整研究工作所產出的期刊論文、研討會論文與已取得之新型專利。
+      </p>
+    </div>
+
+    <div class="outputs-stats" aria-label="Research output summary">
+      <div class="output-stat"><div class="output-stat-number">04</div><div class="output-stat-label" data-en="Journal Articles" data-zh="期刊論文" data-ja="学術論文">期刊論文</div></div>
+      <div class="output-stat"><div class="output-stat-number">10</div><div class="output-stat-label" data-en="Conference Papers" data-zh="研討會論文" data-ja="会議論文">研討會論文</div></div>
+      <div class="output-stat"><div class="output-stat-number">02</div><div class="output-stat-label" data-en="Utility Model Patents" data-zh="新型專利" data-ja="実用新案">新型專利</div></div>
+    </div>
+
+    <details class="output-group" open>
+      <summary>
+        <span class="output-group-index">01</span>
+        <span class="output-group-title" data-en="Journal Articles" data-zh="期刊論文" data-ja="学術論文">期刊論文</span>
+        <span class="output-group-count">4</span>
+      </summary>
+      <div class="output-list">
+        <article class="output-item"><div class="output-year">2026</div><div><h3 class="output-title">Rotating Machinery Fault Diagnosis via ARV-ResNet with Multiscale Signal Decomposition</h3><p class="output-authors">Chun-Wei Huang, Tzer-Long Chen, <strong>Tsung-Yu Yu</strong>, Chih-Hsueh Li, Nan-Kai Hsieh</p><p class="output-source"><em>International Journal of Control, Automation, and Systems</em>, 24, 1284–1296.</p></div></article>
+        <article class="output-item"><div class="output-year">2026</div><div><h3 class="output-title">Wavelet Packet Decomposition Combined with Gravitational Search for Robust Fault Diagnosis in Harmonic Drive</h3><p class="output-authors">Nan-Kai Hsieh, <strong>Tsung-Yu Yu</strong>, Chun-Wei Huang</p><p class="output-source"><em>Enterprise Information Systems</em>.</p></div></article>
+        <article class="output-item"><div class="output-year">2025</div><div><h3 class="output-title">Application of Multiclass Classification to Fault Diagnosis in Harmonic Drive</h3><p class="output-authors"><strong>Tsung-Yu Yu</strong>, Nan-Kai Hsieh, Shiaw-Wu Chen</p><p class="output-source"><em>Journal of the Chinese Society of Mechanical Engineers</em>, 46(2), 121–130.</p></div></article>
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">Fault Detection in Harmonic Drive Using Multi-Sensor Data Fusion and Gravitational Search Algorithm</h3><p class="output-authors">Nan-Kai Hsieh, <strong>Tsung-Yu Yu</strong></p><p class="output-source"><em>Machines</em>, 12(12), 831.</p></div></article>
+      </div>
+    </details>
+
+    <details class="output-group">
+      <summary>
+        <span class="output-group-index">02</span>
+        <span class="output-group-title" data-en="Conference Papers" data-zh="研討會論文" data-ja="会議論文">研討會論文</span>
+        <span class="output-group-count">10</span>
+      </summary>
+      <div class="output-list">
+        <article class="output-item"><div class="output-year">2025</div><div><h3 class="output-title">Hilbert–Gauss Transform with Multi-axis Fusion for Noise-Resilient Fault Diagnosis of Harmonic Drives</h3><p class="output-authors">Nan-Kai Hsieh, Bing-Hong Chen, <strong>Tsung-Yu Yu</strong>, Chang-Yen Lin, Tzer-Long Chen</p><p class="output-source">The 22nd International Conference on Automation Technology (Automation 2025), Kaohsiung.</p></div></article>
+        <article class="output-item"><div class="output-year">2025</div><div><h3 class="output-title">Application of YOLOv8 and Autoencoder for Robotic Arm Anomaly Detection</h3><p class="output-authors">Nan-Kai Hsieh, <strong>Tsung-Yu Yu</strong>, Hong-Yan Pan, Geng-Kai Wong, Jhong-Ting Cheng</p><p class="output-source">International Conference on Intelligent Media and Sustainable Technology Management 2025 (IMSTM 2025).</p></div></article>
+        <article class="output-item"><div class="output-year">2025</div><div><h3 class="output-title">Performance Comparison of Neural Networks in Vibration Signal Decomposition via ARVResNet Framework</h3><p class="output-authors">Nan-Kai Hsieh, Zhi-Xue Li, <strong>Tsung-Yu Yu</strong>, Chun-Wei Huang, Tzer-Long Chen</p><p class="output-source">International Conference on Intelligent Media and Sustainable Technology Management 2025 (IMSTM 2025).</p></div></article>
+        <article class="output-item"><div class="output-year">2025</div><div><h3 class="output-title">應用數位互動學習平台改善及分析學習資料庫成效之研究</h3><p class="output-authors">陳澤龍、謝男凱、孫培倫、林昌諺、<strong>游宗育</strong>、楊錦惠、蕭宗志、張千雲、張志忠</p><p class="output-source">中國機械工程學會第42屆全國學術研討會（CSME 2025），F12-003。</p></div></article>
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">Fault Diagnosis through Feature Fusion using WPD and the Gravitational Search Algorithm</h3><p class="output-authors"><strong>Tsung-Yu Yu</strong>, Nan-Kai Hsieh, Tzer-Long Chen</p><p class="output-source">The 21st International Conference on Automation Technology (Automation 2024), Taipei.</p></div></article>
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">Enhanced Fault Diagnosis in Harmonic Drive via Wavelet Packet Transform Combined with Gravitational Search Algorithm</h3><p class="output-authors"><strong>Tsung-Yu Yu</strong>, Chang-Yen Lin, You-Tsung Chen, Nan-Kai Hsieh</p><p class="output-source">2024 International Conference on Engineering and Technology Innovation (ICETI 2024).</p></div></article>
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">Compact Embedded Devices Are Utilized for Fault Prediction in Harmonic Drive</h3><p class="output-authors"><strong>Tsung-Yu Yu</strong>, Chang-Yen Lin, Yi-Han Deng, Nan-Kai Hsieh</p><p class="output-source">9th International Conference on Advanced Technology Innovation (ICATI 2024).</p></div></article>
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">Fault Prediction and Health Management of Harmonic Drive</h3><p class="output-authors"><strong>Tsung-Yu Yu</strong>, Nan-Kai Hsieh, Shiaw-Wu Chen</p><p class="output-source">Asia-Pacific Conference on Engineering and Applied Sciences (APCEAS 2024), Hokkaido, Japan.</p></div></article>
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">利用特徵強化進行資料融合以檢測旋轉機械之健康狀況</h3><p class="output-authors">謝男凱、<strong>游宗育</strong>、王莅閎、鄭人龍、潘弘諺、李致學</p><p class="output-source">第二十二屆離島資訊技術與應用研討會。</p></div></article>
+        <article class="output-item"><div class="output-year">2011</div><div><h3 class="output-title">The Hamiltonian Path Passing Through Prescribed Edges in a Star Graph with Faulty Edges</h3><p class="output-authors"><strong>Tsung-Yu Yu</strong>, Chun-Nan Hung</p><p class="output-source">The 28th Workshop on Combinatorial Mathematics and Computation Theory.</p></div></article>
+      </div>
+    </details>
+
+    <details class="output-group">
+      <summary>
+        <span class="output-group-index">03</span>
+        <span class="output-group-title" data-en="Utility Model Patents" data-zh="新型專利" data-ja="実用新案">新型專利</span>
+        <span class="output-group-count">2</span>
+      </summary>
+      <div class="output-list">
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">水位監控系統</h3><p class="output-authors"><strong data-en="Inventor: Tsung-Yu Yu" data-zh="發明人：游宗育" data-ja="考案者：Tsung-Yu Yu">發明人：游宗育</strong></p><p class="output-source" data-en="Taiwan Utility Model Patent M652003 · Patent owner: National Taichung University of Science and Technology · Term: 2024/02–2033/11" data-zh="中華民國新型專利 M652003 · 專利權人：國立臺中科技大學 · 專利期間：2024/02–2033/11" data-ja="台湾実用新案 M652003 · 権利者：National Taichung University of Science and Technology · 期間：2024/02–2033/11">中華民國新型專利 M652003 · 專利權人：國立臺中科技大學 · 專利期間：2024/02–2033/11</p></div></article>
+        <article class="output-item"><div class="output-year">2024</div><div><h3 class="output-title">雲端監控與可程式化灌溉系統</h3><p class="output-authors"><strong data-en="Inventor: Tsung-Yu Yu" data-zh="發明人：游宗育" data-ja="考案者：Tsung-Yu Yu">發明人：游宗育</strong></p><p class="output-source" data-en="Taiwan Utility Model Patent M659232 · Patent owner: National Taichung University of Science and Technology · Term: 2024/08–2034/04" data-zh="中華民國新型專利 M659232 · 專利權人：國立臺中科技大學 · 專利期間：2024/08–2034/04" data-ja="台湾実用新案 M659232 · 権利者：National Taichung University of Science and Technology · 期間：2024/08–2034/04">中華民國新型專利 M659232 · 專利權人：國立臺中科技大學 · 專利期間：2024/08–2034/04</p></div></article>
+      </div>
+    </details>
+  </div>
+</section>
+
 <section class="philosophy">
 
 <div class="container">
@@ -2982,7 +3219,7 @@ const translations = {
     "nav.research": "Research",
     "nav.projects": "Projects",
     "nav.people": "People",
-    "nav.publications": "Publications",
+    "nav.publications": "Research Outputs",
     "nav.teaching": "Teaching",
     "nav.resources": "Resources",
     "nav.about": "About",
