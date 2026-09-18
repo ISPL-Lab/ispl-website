@@ -574,9 +574,12 @@
       電子零件識別
     </h3>
 
-    <div class="material-en-title">
-      Electronic Component Identification
-    </div>
+    <div class="material-en-title"
+     data-secondary-en=""
+     data-secondary-zh="Electronic Component Identification"
+     data-secondary-ja="Electronic Component Identification">
+  Electronic Component Identification
+</div>
 
     <p data-en="Physical components, circuit symbols, and applications of resistors, capacitors, inductors, transformers, diodes, and transistors."
        data-zh="電阻、電容、電感、變壓器、二極體與電晶體之實體、電路符號與主要用途。"
@@ -812,6 +815,51 @@
         }
 
       });
+
+    document.querySelectorAll("[data-" + dataKey + "]")
+  .forEach(element => {
+
+    const text =
+      element.getAttribute("data-" + dataKey);
+
+    if (text) {
+      element.innerHTML = text;
+    }
+
+  });
+
+
+/* Secondary English title */
+document.querySelectorAll(".material-en-title").forEach(element => {
+
+  let secondaryText = "";
+
+  if (lang === "zh-TW") {
+    secondaryText = element.dataset.secondaryZh || "";
+  }
+
+  if (lang === "en") {
+    secondaryText = element.dataset.secondaryEn || "";
+  }
+
+  if (lang === "ja") {
+    secondaryText = element.dataset.secondaryJa || "";
+  }
+
+  element.textContent = secondaryText;
+
+  if (secondaryText === "") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "block";
+  }
+
+});
+
+if (lang === "zh-TW") {
+  document.documentElement.lang = "zh-Hant";
+  currentLanguage.textContent = "繁中";
+}
 
 
     if (lang === "zh-TW") {
