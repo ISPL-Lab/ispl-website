@@ -603,6 +603,7 @@
   <div class="download-area">
 
     <a href="../teaching-materials/basic-electricity-lab/component-identification.pdf"
+       data-r2-path="basic-electricity-lab/slides/component-identification.pdf"
        target="_blank"
        rel="noopener"
        class="download-btn"
@@ -613,6 +614,7 @@
     </a>
 
     <a href="../teaching-materials/basic-electricity-lab/component-identification.pdf"
+       data-r2-path="basic-electricity-lab/slides/component-identification.pdf"
        download
        class="download-btn download-primary"
        data-en="↓ Download PDF"
@@ -781,6 +783,23 @@
 
 
 <script>
+
+  /* =====================================================
+     ISPL Teaching Materials — R2 configuration
+     Leave empty before Cloudflare R2 is enabled.
+     Later, change ONLY this line to:
+     const MATERIALS_BASE_URL = "https://materials.ispl.tw";
+  ===================================================== */
+  const MATERIALS_BASE_URL = "";
+
+  if (MATERIALS_BASE_URL) {
+    document.querySelectorAll("[data-r2-path]").forEach(link => {
+      const base = MATERIALS_BASE_URL.replace(/\/$/, "");
+      const path = link.dataset.r2Path.replace(/^\//, "");
+      link.href = `${base}/${path}`;
+    });
+  }
+
 
   const languageButton =
     document.getElementById("languageButton");
