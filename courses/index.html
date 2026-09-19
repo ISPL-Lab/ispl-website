@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching & Courses | ISPL</title>
+  <meta name="description" content="Teaching and course resources from the Intelligent Signal Processing Laboratory (ISPL).">
+  <style>
+    :root{
+      --navy:#073b7a;
+      --blue:#1268f3;
+      --cyan:#14b9ee;
+      --ink:#14253d;
+      --muted:#64748b;
+      --line:#e5eaf1;
+      --bg:#ffffff;
+      --soft:#f7faff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",
+                  "Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1480px,calc(100% - 48px));margin:auto}
+    header{
+      position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--line);backdrop-filter:blur(10px)
+    }
+    .nav{height:98px;display:flex;align-items:center;gap:42px}
+    .brand{display:flex;align-items:center;gap:18px;margin-right:auto}
+    .brand img{width:82px;height:62px;object-fit:contain}
+    .brand-title{font-size:31px;font-weight:800;letter-spacing:.08em;color:#0b3974}
+    .brand-sub{font-size:15px;color:#62738c;margin-top:2px}
+    nav{display:flex;align-items:center;gap:34px;font-weight:700}
+    nav a{white-space:nowrap}
+    nav a:hover,nav a.active{color:var(--blue)}
+    .lang{border:1px solid #d7e0ec;border-radius:12px;padding:11px 16px;font-weight:800}
+
+    .hero{
+      padding:105px 0 95px;
+      background:
+        radial-gradient(circle at 82% 35%,rgba(20,185,238,.15),transparent 27%),
+        radial-gradient(circle at 60% 85%,rgba(88,80,255,.08),transparent 25%),
+        linear-gradient(110deg,#fff 48%,#f6fbff 100%);
+      border-bottom:1px solid var(--line)
+    }
+    .eyebrow{font-size:17px;letter-spacing:.28em;font-weight:800;color:var(--blue)}
+    h1{font-size:clamp(48px,6vw,86px);line-height:1.02;margin:28px 0 26px;letter-spacing:-.045em}
+    .gradient{
+      background:linear-gradient(90deg,#1268f3,#5d48ef);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .lead{font-size:25px;font-weight:700;line-height:1.55;max-width:800px}
+    .intro{font-size:18px;line-height:1.8;color:var(--muted);max-width:830px}
+
+    main{padding:76px 0 110px}
+    .section-label{color:var(--blue);font-size:15px;font-weight:800;letter-spacing:.22em}
+    h2{font-size:42px;margin:10px 0 13px}
+    .section-copy{color:var(--muted);font-size:18px;margin-bottom:38px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+    .card{
+      min-height:320px;border:1px solid #dfe7f1;border-radius:24px;padding:38px;
+      display:flex;flex-direction:column;position:relative;overflow:hidden;
+      transition:.22s ease;background:#fff;box-shadow:0 12px 34px rgba(24,54,92,.05)
+    }
+    .card:after{
+      content:"";position:absolute;width:210px;height:210px;border-radius:50%;
+      right:-75px;top:-85px;background:rgba(20,185,238,.09)
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(24,54,92,.11);border-color:#b9d4f8}
+    .course-code{font-size:13px;font-weight:800;letter-spacing:.17em;color:var(--blue)}
+    .card h3{font-size:31px;margin:16px 0 3px}
+    .zh{font-size:21px;font-weight:700;color:#41536d;margin-bottom:24px}
+    .tags{font-size:16px;line-height:1.8;color:var(--muted)}
+    .go{margin-top:auto;font-size:17px;font-weight:800;color:var(--blue)}
+    footer{border-top:1px solid var(--line);padding:32px 0 45px;color:#6a7890;font-size:14px}
+    .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    @media(max-width:1050px){
+      nav{display:none}
+      .nav{height:82px}
+      .brand img{width:64px}
+      .brand-title{font-size:25px}
+      .grid{grid-template-columns:1fr}
+    }
+    @media(max-width:620px){
+      .container{width:min(100% - 28px,1480px)}
+      .brand-sub{display:none}
+      .brand-title{font-size:22px}
+      .hero{padding:70px 0}
+      h2{font-size:34px}
+      .card{padding:28px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img src="../assets/images/ispl-symbol.png" alt="ISPL symbol">
+      <div>
+        <div class="brand-title">ISPL</div>
+        <div class="brand-sub">Intelligent Signal Processing Laboratory</div>
+      </div>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/projects/">Projects</a>
+      <a href="/#people">People</a>
+      <a href="/#research">Research</a>
+      <a href="/#outputs">Research Outputs</a>
+      <a class="active" href="/courses/">Teaching</a>
+      <a href="/#resources">Resources</a>
+      <a href="/#about">About</a>
+    </nav>
+    <span class="lang">EN⌄</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">TEACHING &amp; COURSES</div>
+    <h1>Learn. Build.<br><span class="gradient">Experiment.</span></h1>
+    <div class="lead">Connecting fundamental engineering concepts with hands-on practice and intelligent systems.</div>
+    <p class="intro">
+      Course materials and learning resources developed for engineering and computer science education,
+      integrating core theory, laboratory practice, embedded systems, and AI-assisted learning.
+    </p>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+    <div class="section-label">COURSES</div>
+    <h2>Teaching</h2>
+    <div class="section-copy">Explore current course pages and supporting learning materials.</div>
+
+    <div class="grid">
+      <a class="card" href="/courses/basic-electricity-lab.html">
+        <div class="course-code">ELECTRICAL ENGINEERING · LAB</div>
+        <h3>Basic Electricity Laboratory</h3>
+        <div class="zh">基本電學實習</div>
+        <div class="tags">
+          Circuits · Measurement · Electronic Components<br>
+          Instruments · Hands-on Practice · AI-assisted Learning
+        </div>
+        <div class="go">Explore Course →</div>
+      </a>
+
+      <a class="card" href="/courses/microprocessors.html">
+        <div class="course-code">COMPUTER ENGINEERING</div>
+        <h3>Microprocessors</h3>
+        <div class="zh">微處理機</div>
+        <div class="tags">
+          CPU Architecture · ALU · Registers · Bus Systems<br>
+          Instruction Cycle · Embedded Systems
+        </div>
+        <div class="go">Explore Course →</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>Intelligent Signal Processing Laboratory (ISPL)</span>
+    <span>Signal → Information → Intelligence</span>
+  </div>
+</footer>
+</body>
+</html>
