@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基本電學 | Basic Electricity | ISPL</title>
+  <meta name="description" content="ISPL 基本電學課程教材與 AI 輔助學習資源。">
+  <style>
+    :root{
+      --navy:#062b59; --blue:#1468b3; --cyan:#37b9d6;
+      --text:#26384b; --muted:#6f8195; --line:#dce7f2;
+      --soft:#f5f9fd; --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--text); background:#fff;
+      font-family:Inter,"Noto Sans TC","Noto Sans JP","Microsoft JhengHei",Arial,sans-serif;
+    }
+    .container{width:min(100% - 40px,1180px);margin:auto}
+    .site-header{
+      position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--line);backdrop-filter:blur(10px)
+    }
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+    .brand-logo{width:43px;height:43px;object-fit:contain}
+    .brand-name{font-size:20px;font-weight:900;letter-spacing:.08em}
+    .brand-subtitle{font-size:11px;color:var(--muted);font-weight:650}
+    .nav-right{display:flex;align-items:center;gap:20px}
+    .back-link{color:var(--navy);font-size:13px;font-weight:800;text-decoration:none}
+    .language-selector{position:relative}
+    .language-button{
+      border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;
+      color:var(--navy);font-weight:800;cursor:pointer
+    }
+    .language-menu{
+      display:none;position:absolute;right:0;top:44px;min-width:145px;padding:7px;
+      background:#fff;border:1px solid var(--line);border-radius:12px;
+      box-shadow:0 12px 30px rgba(6,43,89,.12)
+    }
+    .language-menu.active{display:block}
+    .language-menu button{
+      display:block;width:100%;border:0;background:none;text-align:left;padding:9px 10px;
+      border-radius:8px;color:var(--text);cursor:pointer
+    }
+    .language-menu button:hover{background:var(--soft)}
+    .course-hero{
+      padding:78px 0 72px;
+      background:linear-gradient(135deg,#f8fbff 0%,#edf6fd 58%,#f5fbff 100%);
+      border-bottom:1px solid var(--line)
+    }
+    .breadcrumb,.section-kicker{
+      color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.13em
+    }
+    .course-category{
+      display:inline-block;margin-top:22px;padding:7px 11px;border-radius:999px;
+      background:#e5f3fc;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:.08em
+    }
+    h1{margin:18px 0 6px;color:var(--navy);font-size:clamp(38px,6vw,66px);line-height:1.05}
+    .english-title{color:#6e8196;font-size:17px;font-weight:650}
+    .course-description{max-width:790px;margin:25px 0 0;font-size:17px;line-height:1.85}
+    .course-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+    .course-meta span,.material-meta span{
+      padding:7px 11px;border-radius:999px;background:#fff;border:1px solid #d7e5f1;
+      color:#55708f;font-size:11px;font-weight:800
+    }
+    .materials{padding:72px 0 90px}
+    .materials h2{margin:10px 0 12px;color:var(--navy);font-size:34px}
+    .materials-intro{max-width:800px;margin:0 0 32px;color:var(--muted);line-height:1.8}
+    .material-list{display:grid;gap:18px}
+    .material-card{
+      display:grid;grid-template-columns:70px minmax(0,1fr) auto;align-items:center;gap:24px;
+      padding:26px;border:1px solid var(--line);border-radius:18px;background:#fff;
+      box-shadow:0 8px 24px rgba(6,43,89,.045)
+    }
+    .material-number{
+      display:grid;place-items:center;width:58px;height:58px;border-radius:16px;
+      background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;
+      font-size:18px;font-weight:900
+    }
+    .material-type{margin-bottom:6px;color:var(--blue);font-size:10px;font-weight:900;letter-spacing:.12em}
+    .material-info h3{margin:0 0 5px;color:var(--navy);font-size:22px}
+    .material-en-title{margin:0 0 10px;color:#8190a3;font-size:13px;font-weight:650}
+    .material-info p{margin:0;max-width:720px;font-size:14px;line-height:1.65}
+    .material-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+    .download-area{display:flex;gap:8px;align-items:center}
+    .download-btn{
+      display:inline-block;min-width:92px;padding:11px 15px;border:1px solid var(--blue);
+      border-radius:10px;background:var(--blue);color:#fff;font-size:12px;font-weight:900;
+      text-align:center;text-decoration:none
+    }
+    .download-btn:hover{background:var(--navy);border-color:var(--navy)}
+    .upload-note{
+      margin-top:28px;padding:18px 20px;border-radius:14px;background:var(--soft);
+      border:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.7
+    }
+    footer{padding:38px 0;background:var(--navy);color:rgba(255,255,255,.72);font-size:13px}
+    @media(max-width:760px){
+      .container{width:min(100% - 30px,1180px)}
+      .brand-subtitle,.back-link{display:none}
+      .course-hero{padding:55px 0}
+      .material-card{grid-template-columns:1fr;gap:14px}
+      .material-number{width:48px;height:48px}
+      .download-area{margin-top:4px}
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a href="../index.html" class="brand">
+      <img src="../assets/images/ispl-symbol.png" alt="ISPL Logo" class="brand-logo">
+      <div>
+        <div class="brand-name">ISPL</div>
+        <div class="brand-subtitle">Intelligent Signal Processing Laboratory</div>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a href="../index.html#teaching" class="back-link"
+         data-en="← Back to Teaching" data-zh="← 返回教學資源" data-ja="← 教育リソースに戻る">← 返回教學資源</a>
+      <div class="language-selector">
+        <button class="language-button" id="languageButton" type="button" aria-expanded="false">
+          <span id="currentLanguage">繁中</span>⌄
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <button data-lang="zh-TW" type="button">繁體中文</button>
+          <button data-lang="en" type="button">English</button>
+          <button data-lang="ja" type="button">日本語</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="course-hero">
+  <div class="container">
+    <div class="breadcrumb"
+         data-en="ISPL TEACHING / FOUNDATION COURSE"
+         data-zh="ISPL 教學資源 / 基礎課程"
+         data-ja="ISPL 教育リソース / 基礎科目">ISPL 教學資源 / 基礎課程</div>
+
+    <div class="course-category"
+         data-en="FOUNDATION COURSE" data-zh="基礎課程" data-ja="基礎科目">基礎課程</div>
+
+    <h1 data-en="Basic Electricity" data-zh="基本電學" data-ja="基礎電気学">基本電學</h1>
+    <div class="english-title">Basic Electricity</div>
+
+    <p class="course-description"
+       data-en="Fundamental electrical engineering concepts including electrical quantities, circuit fundamentals, resistance, and basic circuit analysis."
+       data-zh="從電學基本概念出發，逐步建立電量、電路基礎、電阻與基本電路分析能力，作為後續電子電路與工程實作的基礎。"
+       data-ja="電気の基本概念から、電気量、回路の基礎、抵抗、基本的な回路解析までを学び、電子回路や工学実習の基礎を築きます。">
+      從電學基本概念出發，逐步建立電量、電路基礎、電阻與基本電路分析能力，作為後續電子電路與工程實作的基礎。
+    </p>
+
+    <div class="course-meta">
+      <span>Foundation</span><span>Slides</span><span>AI-Assisted Learning</span><span>Circuit Fundamentals</span>
+    </div>
+  </div>
+</section>
+
+<section class="materials">
+  <div class="container">
+    <div class="section-kicker"
+         data-en="COURSE MATERIALS" data-zh="課程教材" data-ja="コース教材">課程教材</div>
+    <h2 data-en="Learning Materials" data-zh="章節教材" data-ja="学習教材">章節教材</h2>
+    <p class="materials-intro"
+       data-en="Lecture materials are organized by chapter. The first release includes Chapter 1: Introduction to Electricity and Chapter 2: Resistance."
+       data-zh="教材依章節整理。目前先提供 CH1「電學概論」與 CH2「電阻」，後續章節將依課程進度持續更新。"
+       data-ja="教材は章ごとに整理しています。現在は CH1「電気学概論」と CH2「抵抗」を公開し、今後授業の進度に合わせて追加します。">
+      教材依章節整理。目前先提供 CH1「電學概論」與 CH2「電阻」，後續章節將依課程進度持續更新。
+    </p>
+
+    <div class="material-list">
+      <article class="material-card">
+        <div class="material-number">CH1</div>
+        <div class="material-info">
+          <div class="material-type">LECTURE SLIDES</div>
+          <h3 data-en="Introduction to Electricity" data-zh="電學概論" data-ja="電気学概論">電學概論</h3>
+          <div class="material-en-title">Introduction to Electricity</div>
+          <p data-en="Introduction to fundamental electrical concepts and the basic knowledge required for subsequent circuit analysis."
+             data-zh="介紹基本電學核心概念，建立後續電路分析所需的基礎知識。"
+             data-ja="電気学の基本概念を学び、後続の回路解析に必要な基礎知識を身につけます。">
+            介紹基本電學核心概念，建立後續電路分析所需的基礎知識。
+          </p>
+          <div class="material-meta"><span>CH1</span><span>PDF</span><span>Lecture Slides</span></div>
+        </div>
+        <div class="download-area">
+          <a class="download-btn" href="../teaching-materials/basic-electricity/ch01-introduction-to-electricity.pdf"
+             target="_blank" rel="noopener"
+             data-en="Open PDF" data-zh="開啟教材" data-ja="PDFを開く">開啟教材</a>
+        </div>
+      </article>
+
+      <article class="material-card">
+        <div class="material-number">CH2</div>
+        <div class="material-info">
+          <div class="material-type">LECTURE SLIDES</div>
+          <h3 data-en="Resistance" data-zh="電阻" data-ja="抵抗">電阻</h3>
+          <div class="material-en-title">Resistance</div>
+          <p data-en="Resistance fundamentals and related electrical concepts for basic circuit analysis."
+             data-zh="介紹電阻的基本概念與相關電學知識，銜接後續基本電路分析。"
+             data-ja="抵抗の基本概念と関連する電気学の知識を学び、基本回路解析へつなげます。">
+            介紹電阻的基本概念與相關電學知識，銜接後續基本電路分析。
+          </p>
+          <div class="material-meta"><span>CH2</span><span>PDF</span><span>Lecture Slides</span></div>
+        </div>
+        <div class="download-area">
+          <a class="download-btn" href="../teaching-materials/basic-electricity/ch02-resistance.pdf"
+             target="_blank" rel="noopener"
+             data-en="Open PDF" data-zh="開啟教材" data-ja="PDFを開く">開啟教材</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="upload-note"
+         data-en="PDF paths used by this page: teaching-materials/basic-electricity/ch01-introduction-to-electricity.pdf and ch02-resistance.pdf."
+         data-zh="本頁預設 PDF 路徑：teaching-materials/basic-electricity/ch01-introduction-to-electricity.pdf 與 ch02-resistance.pdf。"
+         data-ja="このページのPDFパス：teaching-materials/basic-electricity/ch01-introduction-to-electricity.pdf と ch02-resistance.pdf。">
+      本頁預設 PDF 路徑：teaching-materials/basic-electricity/ch01-introduction-to-electricity.pdf 與 ch02-resistance.pdf。
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container">© 2026 Intelligent Signal Processing Laboratory · ISPL</div></footer>
+
+<script>
+const languageButton=document.getElementById("languageButton");
+const languageMenu=document.getElementById("languageMenu");
+const currentLanguage=document.getElementById("currentLanguage");
+
+function setLanguage(lang){
+  const key=lang==="en"?"en":lang==="ja"?"ja":"zh";
+  document.querySelectorAll("[data-"+key+"]").forEach(el=>{
+    const t=el.getAttribute("data-"+key);
+    if(t!==null) el.innerHTML=t;
+  });
+  document.documentElement.lang=lang==="en"?"en":lang==="ja"?"ja":"zh-Hant";
+  currentLanguage.textContent=lang==="en"?"EN":lang==="ja"?"JP":"繁中";
+  localStorage.setItem("ispl-language",lang);
+}
+languageButton.addEventListener("click",e=>{
+  e.stopPropagation();
+  const active=languageMenu.classList.toggle("active");
+  languageButton.setAttribute("aria-expanded",String(active));
+});
+document.querySelectorAll(".language-menu button").forEach(btn=>{
+  btn.addEventListener("click",e=>{
+    e.stopPropagation(); setLanguage(btn.dataset.lang);
+    languageMenu.classList.remove("active");
+    languageButton.setAttribute("aria-expanded","false");
+  });
+});
+document.addEventListener("click",()=>{
+  languageMenu.classList.remove("active");
+  languageButton.setAttribute("aria-expanded","false");
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){
+    languageMenu.classList.remove("active");
+    languageButton.setAttribute("aria-expanded","false");
+  }
+});
+setLanguage(localStorage.getItem("ispl-language")||"zh-TW");
+</script>
+</body>
+</html>
